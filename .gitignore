@@ -1,0 +1,6 @@
+*~
+*.swp
+.hg*
+.DS_Store
+.rvmrc
+plugins/

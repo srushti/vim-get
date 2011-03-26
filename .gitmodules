@@ -1,0 +1,66 @@
+[submodule "vim-rails"]
+	path = vim-rails
+	url = git://github.com/tpope/vim-rails.git
+[submodule "vim-cucumber"]
+	path = vim-cucumber
+	url = git://github.com/tpope/vim-cucumber.git
+[submodule "vim-haml"]
+	path = vim-haml
+	url = git://github.com/tpope/vim-haml.git
+[submodule "nerdtree"]
+	path = nerdtree
+	url = git://github.com/scrooloose/nerdtree.git
+[submodule "vim-scratch/plugin"]
+	path = vim-scratch/plugin
+	url = git://github.com/jkramer/vim-scratch.git
+[submodule "ack.vim"]
+	path = ack.vim
+	url = git://github.com/mileszs/ack.vim.git
+[submodule "tabular"]
+	path = tabular
+	url = git://github.com/godlygeek/tabular.git
+[submodule "vim-fugitive"]
+	path = vim-fugitive
+	url = git://github.com/tpope/vim-fugitive.git
+[submodule "snipmate.vim"]
+	path = snipmate.vim
+	url = git://github.com/srushti/snipmate.vim.git
+[submodule "tcomment_vim"]
+	path = tcomment_vim
+	url = git://github.com/tomtom/tcomment_vim.git
+[submodule "vim-bufonly"]
+	path = vim-bufonly
+	url = git://github.com/duff/vim-bufonly.git
+[submodule "vim-endwise"]
+	path = vim-endwise
+	url = git://github.com/tpope/vim-endwise.git
+[submodule "vim-surround"]
+	path = vim-surround
+	url = git://github.com/tpope/vim-surround.git
+[submodule "Command-T"]
+	path = Command-T
+	url = git://github.com/wincent/Command-T.git
+[submodule "supertab"]
+	path = supertab
+	url = git://github.com/ervandew/supertab.git
+[submodule "rvm.vim"]
+	path = rvm.vim
+	url = git://github.com/csexton/rvm.vim.git
+[submodule "vim-unimpaired"]
+	path = vim-unimpaired
+	url = git://github.com/tpope/vim-unimpaired.git
+[submodule "vim-rake"]
+	path = vim-rake
+	url = git://github.com/tpope/vim-rake.git
+[submodule "vim-yankring"]
+	path = vim-yankring
+	url = git://github.com/chrismetcalf/vim-yankring.git
+[submodule "vim-javascript"]
+	path = vim-javascript
+	url = git://github.com/pangloss/vim-javascript.git
+[submodule "vim-autoclose"]
+	path = vim-autoclose
+	url = git://github.com/Townk/vim-autoclose.git
+[submodule "vim-ruby-refactoring"]
+	path = vim-ruby-refactoring
+	url = git://github.com/ecomba/vim-ruby-refactoring.git

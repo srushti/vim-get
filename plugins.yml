@@ -1,0 +1,49 @@
+plugins:
+  vim-rails:
+    git: git://github.com/tpope/vim-rails.git
+  vim-cucumber:
+    git: git://github.com/tpope/vim-cucumber.git
+  vim-haml:
+    git: git://github.com/tpope/vim-haml.git
+  nerdtree:
+    git: git://github.com/scrooloose/nerdtree.git
+  ack.vim:
+    git: git://github.com/mileszs/ack.vim.git
+  tabular:
+    git: git://github.com/godlygeek/tabular.git
+  vim-fugitive:
+    git: git://github.com/tpope/vim-fugitive.git
+  snipmate.vim:
+    git: git://github.com/srushti/snipmate.vim.git
+  tcomment_vim:
+    git: git://github.com/tomtom/tcomment_vim.git
+  vim-bufonly:
+    git: git://github.com/duff/vim-bufonly.git
+  vim-endwise:
+    git: git://github.com/tpope/vim-endwise.git
+  vim-surround:
+    git: git://github.com/tpope/vim-surround.git
+  Command-T:
+    git: git://github.com/wincent/Command-T.git
+  supertab:
+    git: git://github.com/ervandew/supertab.git
+  rvm.vim:
+    git: git://github.com/csexton/rvm.vim.git
+  vim-unimpaired:
+    git: git://github.com/tpope/vim-unimpaired.git
+  vim-rake:
+    git: git://github.com/tpope/vim-rake.git
+  vim-yankring:
+    git: git://github.com/chrismetcalf/vim-yankring.git
+  vim-javascript:
+    git: git://github.com/pangloss/vim-javascript.git
+  vim-autoclose:
+    git: git://github.com/Townk/vim-autoclose.git
+  vim-ruby-refactoring:
+    git: git://github.com/ecomba/vim-ruby-refactoring.git
+  vim-fuzzyfinder:
+    hg: https://bitbucket.org/ns9tks/vim-fuzzyfinder
+  vimclojure:
+    hg: https://bitbucket.org/kotarak/vimclojure
+  vim-l9:
+    hg: https://bitbucket.org/ns9tks/vim-l9
