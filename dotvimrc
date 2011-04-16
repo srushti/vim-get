@@ -207,7 +207,8 @@ endif
 " -----------------------------------------------------------------------------
 
 " NERDTree ********************************************************************
-:noremap <leader>n :NERDTreeToggle<CR>
+nmap <silent> <unique> <leader>n :NERDTreeToggle<CR>
+nmap <silent> <unique> <leader>/ :NERDTreeFind<CR>
 
 " User instead of Netrw when doing an edit /foobar
 let NERDTreeHijackNetrw=1
