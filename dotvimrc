@@ -216,6 +216,9 @@ let NERDTreeHijackNetrw=1
 " Single click for everything
 let NERDTreeMouseMode=1
 
+" Ignoring java class files
+let NERDTreeIgnore=['.class$', '\~$']
+
 " fuzzyfinder_textmate ********************************************************
 nmap <silent> <leader>f :FufFile<CR>
 nmap <silent> <leader>b :FufBuffer<CR>
@@ -231,7 +234,7 @@ let g:yankring_history_dir = expand('$HOME/.vim/tmp')
 
 " Command-T *******************************************************************
 let g:CommandTMatchWindowAtTop = 1
-set wildignore+=*~,.DS_Store
+set wildignore+=*~,.DS_Store,*.class,*.gif,*.png,*.sqlite3
 
 " autocomplpop ****************************************************************
 " complete option
