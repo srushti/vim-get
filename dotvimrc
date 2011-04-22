@@ -23,6 +23,7 @@ endfunction
 if has('autocmd')
   autocmd FileType html let g:html_indent_strict=1
   autocmd BufNewFile,BufRead Gemfile setfiletype ruby
+  autocmd BufNewFile,BufRead *.j setfiletype objc
   autocmd BufWritePre *.rb,*.py,*.js :call <SID>StripTrailingWhitespaces()
 endif
 
