@@ -1,9 +1,9 @@
 require 'rake'
 require 'yaml'
 
-SCRIPTS_WITH_RAKE = %w(Command-T)
+SCRIPTS_WITH_RAKE = {'Command-T' => 'make', 'nerdtree' => 'install'}
 FOLDERS = %w(colors ftdetect ftplugin indent syntax doc plugin autoload snippets macros after ruby)
-SCRIPTS = %w(personal tabular nerdtree vim-cucumber vim-rails vim-fugitive vim-haml ack.vim snipmate.vim vim-spec tcomment_vim vim-bufonly vim-endwise vim-surround vim-yankring vim-fuzzyfinder supertab rvm.vim vim-unimpaired Slimv vimclojure vim-rake vim-javascript vim-autoclose vim-ruby-refactoring matchit vim-l9 cscope) + SCRIPTS_WITH_RAKE
+SCRIPTS = %w(personal tabular vim-cucumber vim-rails vim-fugitive vim-haml ack.vim snipmate.vim vim-spec tcomment_vim vim-bufonly vim-endwise vim-surround vim-yankring vim-fuzzyfinder supertab rvm.vim vim-unimpaired Slimv vimclojure vim-rake vim-javascript vim-autoclose vim-ruby-refactoring matchit vim-l9 cscope) + SCRIPTS_WITH_RAKE.keys
 DOTVIM = "#{ENV['HOME']}/.vim"
 
 desc "Get latest on all plugins"
@@ -49,12 +49,12 @@ task :install do
   FileUtils.mkdir_p "#{DOTVIM}/tmp"
 
   in_directory('plugins') do
-    SCRIPTS_WITH_RAKE.each do |s|
+    SCRIPTS_WITH_RAKE.each do |s, command|
       if !File.directory?(s)
         puts "#{s} doesn't exist. Please run 'rake preinstall'"
       else
         puts "making #{s}"
-        in_directory(s) { system 'rake make' }
+        in_directory(s) { system "rake #{command}" }
       end
     end
   end
