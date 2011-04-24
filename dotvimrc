@@ -132,6 +132,7 @@ set laststatus=2
 " Line Wrapping ***************************************************************
 set nowrap
 set linebreak " Wrap at word
+set showbreak=…
 
 " Mappings ********************************************************************
 " Professor VIM says '87% of users prefer jj over esc', jj abrams strongly disagrees
