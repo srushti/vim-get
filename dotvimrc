@@ -38,10 +38,11 @@ nmap <silent> <unique> <Space> <PageDown>
 nmap <silent> <unique> <S-Space> <PageUp>
 nmap <silent> <unique> <C-S-Left> <C-o>
 nmap <silent> <unique> <C-S-Right> <C-i>
-nmap <unique> <leader>ew :e <C-R>=expand("%:p:h") . "/" <CR>
-nmap <unique> <leader>es :sp <C-R>=expand("%:p:h") . "/" <CR>
-nmap <unique> <leader>ev :vsp <C-R>=expand("%:p:h") . "/" <CR>
-nmap <unique> <leader>et :tabe <C-R>=expand("%:p:h") . "/" <CR>
+cnoremap %% <C-R>=expand('%:h').'/'<cr>
+nmap <unique> <leader>ew :e %%
+nmap <unique> <leader>es :sp %%
+nmap <unique> <leader>ev :vsp %%
+nmap <unique> <leader>et :tabe %%
 
 " Tabs ************************************************************************
 "set sta " a <Tab> in an indent inserts 'shiftwidth' spaces
