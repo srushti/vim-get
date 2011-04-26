@@ -3,7 +3,7 @@ require 'yaml'
 
 SCRIPTS_WITH_RAKE = {'Command-T' => 'make', 'nerdtree' => 'install'}
 FOLDERS = %w(colors ftdetect ftplugin indent syntax doc plugin autoload snippets macros after ruby)
-SCRIPTS = %w(personal tabular vim-cucumber vim-rails vim-fugitive vim-haml ack.vim snipmate.vim vim-spec tcomment_vim vim-bufonly vim-endwise vim-surround vim-yankring vim-fuzzyfinder supertab rvm.vim vim-unimpaired Slimv vimclojure vim-rake vim-javascript vim-autoclose vim-ruby-refactoring matchit vim-l9 cscope) + SCRIPTS_WITH_RAKE.keys
+SCRIPTS = %w(personal tabular vim-cucumber vim-rails vim-fugitive vim-haml ack.vim snipmate.vim vim-spec tcomment_vim vim-bufonly vim-endwise vim-surround vim-yankring vim-fuzzyfinder supertab rvm.vim vim-unimpaired Slimv vimclojure vim-rake vim-javascript vim-autoclose vim-ruby-refactoring matchit vim-l9 cscope gundo conque) + SCRIPTS_WITH_RAKE.keys
 DOTVIM = "#{ENV['HOME']}/.vim"
 
 desc "Get latest on all plugins"
@@ -23,11 +23,13 @@ end
 def clone_project(name, script_url_yaml)
   system("git clone #{script_urls[name]['git']} #{name}") if script_url_yaml['git']
   system("hg clone #{script_urls[name]['hg']} #{name}") if script_url_yaml['hg']
+  system("svn checkout #{script_urls[name]['svn']} #{name}") if script_url_yaml['svn']
 end
 
 def update_current_dir
   system('git pull origin master') if File.directory?('.git')
   system('hg pull && hg update') if File.directory?('.hg')
+  system('svn up') if File.directory?('.svn')
 end
 
 def in_directory(directory)

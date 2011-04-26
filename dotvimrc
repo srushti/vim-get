@@ -243,6 +243,9 @@ let g:yankring_history_dir = expand('$HOME/.vim/tmp')
 let g:CommandTMatchWindowAtTop = 1
 set wildignore+=*~,.DS_Store,*.class,*.gif,*.png,*.sqlite3
 
+" Gundo ***********************************************************************
+nmap <silent> <unique> <leader>u :GundoToggle<CR>
+
 " autocomplpop ****************************************************************
 " complete option
 "set complete=.,w,b,u,t,k
