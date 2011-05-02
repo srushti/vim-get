@@ -43,8 +43,6 @@ plugins:
     git: git://github.com/ecomba/vim-ruby-refactoring.git
   vim-fuzzyfinder:
     hg: https://bitbucket.org/ns9tks/vim-fuzzyfinder
-  vimclojure:
-    hg: https://bitbucket.org/kotarak/vimclojure
   vim-l9:
     hg: https://bitbucket.org/ns9tks/vim-l9
   gundo:
