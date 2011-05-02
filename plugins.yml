@@ -41,6 +41,8 @@ plugins:
     git: git://github.com/Townk/vim-autoclose.git
   vim-ruby-refactoring:
     git: git://github.com/ecomba/vim-ruby-refactoring.git
+  vim-fuzzyfinder:
+    hg: https://bitbucket.org/ns9tks/vim-fuzzyfinder
   vimclojure:
     hg: https://bitbucket.org/kotarak/vimclojure
   vim-l9:
