@@ -1,0 +1,564 @@
+*pairtools.txt*  For Vim version 7.3.  Last change: 2011 March 29
+
+
+	    PAIRTOOLS PLUGIN FOR VIM	by Martin Lafreniere
+
+
+
+Help on PairTools                                     *pairtools-help*
+
+|1.| Foreword			    |pairtools-foreword|
+|2.| Introduction		    |pairtools-intro|
+|3.| Options                        |pairtools-options|
+|4.| Features			    |pairtools-features|
+    |4.1| Auto-Close			|pt-auto-close|
+        |4.1.1| Forced Pairs            |pt-forced-pairs|
+    |4.2| Antimagic Field		|pt-antimagic-field|
+    |4.3| Smart-Close                   |pt-smart-close|
+    |4.4| Pair Deletion			|pt-pair-deletion|
+    |4.5| Surround			|pt-surround|
+    |4.6| Carriage Return Expansion	|pt-carriage-return-expansion|
+    |4.7| Special Handlings             |pt-special-handling|
+|5.| Installation                   |pairtools-install|
+|6.| Filetype Files Examples        |pairtools-examples|
+|7.| Few Thoughts		    |pairtools-thoughts|
+|8.| License                        |pairtools-license|
+|9.| Credits                        |pairtools-credits|
+
+==============================================================================
+*1.* Foreword                                           *pairtools-foreword*
+
+You might ask why another plugin for pair-closing and pair-surrounding? I
+decided to start the coding of this plugin after a trial period with different
+other plugins such as AutoClose, delimitMate and al., which didn't let me set 
+the different options and pairs based on filetypes as I like it. It was also 
+a great opportunity for me to learn Vim script as I started learning Vim a 
+few weeks before starting this plugin.
+
+You may or may not find features you are already familiar with or from other 
+similar plugins. This is a continuously work in progress.
+
+Bugs can be report on https://github.com/MartinLafreniere/PairTools.
+
+You can reach me at pairtools@gmail.com for questions, comments and feature 
+requests. I should be able to answer you within a few days.
+ 
+==============================================================================
+*2.* Introduction                                       *pairtools-intro*
+
+The main goal of the PairTools plugin is to offer a generic plugin that will
+work with any language and that can be configured based on the current
+filetype (or language). The PairTools plugin offers the following features to 
+the user:
+
+        - Automatically close an opening character of a defined pair
+        - Step out of the current pair at closing character
+        - Delete opening character with backspace deletes the pair
+        - Inline surrounding with a defined-pair in visual mode
+        - Block surrounding with a defined-pair in visual mode
+        - Carriage return expansion within an empty defined pair
+        - Define syntax fields to prevent some features (aka Antimagic Field)
+        - Per filetype features auto-configuration using ftplugin directory
+
+The surround feature is not an attempt to replace the excellent surround.vim
+plugin which can do multi-character pairs. PairTools surround only works with
+single-character pairs. If the surround features your are looking for are not
+limited to single-character pairs, disable the surround feature of PairTools
+and use surround.vim along with this plugin.
+
+==============================================================================
+*3.* Options                                            *pairtools-options*
+
+This section merely list the options for each feature. More information is
+available in the |pairtools-features| section.
+
+The PairTools plugin allows the user to define options per filetype. To define 
+these filetype options the user must create a {filetypename}.vim in the
+ftplugin directory from the first location in 'runtimepath'. The following
+examples are good candidates under Linux and Windows:
+
+        Linux:   ~/.vim/ftplugin/ 
+        Windows: $HOME\vimfiles\ftplugin\
+
+For example, if the user wants to define options for the C++ filetype, he must
+create a cpp.vim in his ftplugin directory. When the file already exists the
+user can add his PairTools options inside it, along with the other stuff.
+
+Once a file of the given filetype is loaded into a vim buffer, the PairTools
+options will be configured for that filetype. 
+
+Note: All options are enabled by default.
+
+While describing the options, we will use the following notation to write the
+name of an option: >
+
+	let g:{filetype}_option = 1
+<
+The {filetype} placeholder must be replace by your filetype name. For example,
+this auto-close option would be defined for the C++ filetype in cpp.vim as: >
+
+	let g:cpp_autoclose = 1
+<
+
+The PairTool plugin uses the standard Vim way to disable a plugin. To do so
+simply set in you vimrc file the following line: >
+	
+	let g:loaded_PairTools = 1
+<
+This will prevent the plugin from loading.
+
+It is also possible to disable or enable the plugin per filetype: >
+
+        " Enable pairtools for current filetype
+        let g:{filetype}_pairtools = 1
+        " Disable pairtools for current filetype
+        let g:{filetype}_pairtools = 0
+<
+The pairs to be used with most of the features are defined using a string. To
+customize your own pairs you can define this string as follow: >
+
+	let g:{filetype}_closepairs = "(:),':'"
+<
+The pairs string defaults to: >
+
+        "(:),{:},[:],\":\",':'"
+<
+The |auto-close| and |forced-pairs| features can be enabled/disabled as follow: >
+
+        " Enable auto-close
+	let g:{filetype}_autoclose = 1
+	" Disable auto-close
+	let g:{filetype}_autoclose = 0
+<
+It is possible to define another mapping for the |forced-pairs| features. It can
+be set using the follow declaration: >
+
+        let g:{filetype}_forcedpairskey = "key"
+<
+More information on what to map is provided in the |forced-pairs| section.
+
+It is possible to define some syntax fields where you want to prevent the 
+auto-closing mechanism and related features. The PairTools plugin uses a 
+feature called Antimagic Field which allow you to define these syntax fields: >
+
+	let g:{filetype}_antimagicfield = "String,Comment,Special"
+<
+The |antimagic-field| defaults to: >
+
+        "Comment,String"
+<
+The |antimagic-field| feature can be enabled/disabled as follow: >
+
+	" Enable Antimagic Field
+	let g:{filetype}_antimagic = 1
+	" Disable Antimagic Field
+	let g:{filetpye}_antimagic = 0
+<
+The |smart-close| feature can be set as follow: >
+
+        let g:{filetype}_smartcloserules = '\w,^,\$'
+<
+And it can be turned on/off: >
+
+        " Enable Smart-Close
+        let g:{filetype}_smartclose = 1
+        " Disable Smart-Close
+        let g:{filetype}_smartclose = 0
+<
+The |pair-deletion| feature can be enabled/disabled as follow: >
+
+	" Enable Pair Deletion
+	let g:{filetype}_pairdeletion = 1
+	" Disable Pair Deletion
+	let g:{filetype}_pairdeletion = 0
+<
+The |surround| feature (both inline and block) can enabled/disabled as follow: >
+
+	" Enable Surround
+	let g:{filetype}_surround = 1
+	" Disable Surround
+	let g:{filetype}_surround = 0
+<
+The |carriage-return-expansion| feature can be enabled/disable as follow: >
+
+	" Enable Carriage Return Expansion
+	let g:{filetype}_crexpand = 1
+	" Disable Carriage Return Expansion
+	let g:{filetype}_crexpand = 0
+>
+==============================================================================
+*4.* Features                                           *pairtools-features*
+
+The following section describe each feature. In the examples, the cursor is
+represented using the bar (|).
+
+*4.1* Auto-Close                                                *pt-auto-close*
+
+The auto-close feature automatically close a pair based on its opening
+character. The following example shows the process:
+
+Suppose we have the following line:
+
+	int function|
+
+When the user press an opening '(' the line becomes:
+
+	int function(|)
+
+Let the user add an argument:
+	
+	int function(int arg|)
+
+To automatically step out of the enclosing paren, the user type ')':
+
+	int function(int arg)|
+
+Note: This feature is compatible with the undo and redo commands.
+
+*4.1.1* Forced Pairs                                           *pt-forced-pairs*
+
+This is somewhat a sub-feature to auto-close. This feature was added after
+thinking the best way to handle Python DOCSTRINGS, or similar constructs in
+other languages.
+
+Using the <M-openingpairchar> key sequence while in insert mode will add an 
+auto-closed pairs even inside antimagic fields. The following example uses 
+Python DOCSTRING but any pair can be nested inside antimagic fields:
+
+    Pressing "     =>  "|"
+    Pressing <M-"> =>  ""|""
+    Pressing <M-"> =>  """|"""
+
+It is still possible to step out pressing three times the closing pair.
+
+In some terminals, the META-key (or ALT-key) isn't properly supported. For
+users in this situation, it is possible to use <C-key> followed by the opening 
+character of a pair, where key is the key the user defines using the 
+forced-pair option. Example: >
+
+        let g:{filetype}_forcedpairskey = "<C-L>". 
+<
+From the previous <M-"> example:
+
+    Pressing "      =>  "|"
+    Pressing <C-L>" =>  ""|""
+    Pressing <C-L>" =>  """|"""
+
+This options has two purposes: 
+        - <Bar> cannot be mapped to META-key. By default, it uses the mapping
+          <C-\><Bar>. Remapping the key will use the user defined <C-key>
+          instead of <C-\>.
+        - In some terminal the META is not well supported and will allow the
+          user to still use the feature with new <C-key> mappings.
+
+Note: This feature is compatible with the undo and redo commands.
+
+*4.2* Antimagic Field                                      *pt-antimagic-field*
+
+This feature prevents the PairTools plugin to operate some of its magic over
+certain syntax fields. This is particularly useful inside comments and 
+strings. The syntax fields are specified using the antimagicfield options.
+
+When antimagic is enabled, the following features will be disabled inside the
+defined fields:
+
+        - Auto-closing/Moving out
+        - Pair deletion
+
+The quotes need special handlings with regard to the String syntax field. More
+information is provided in the |special-handlings| section. It is still
+possible to move out of some field when on the field delimiter, such as the
+ending quote of a string.
+
+*4.3* Smart-Close                                               *pt-pair-close*
+
+This feature allow the user to tell the plugin conditions under which it
+should not automatically close a defined pair. To specify the conditions, the
+user must specify a regex-like string. This string must be in single quote
+unless the user wants to escape each backslashes.
+
+The smart close uses commas delimited string between which single character
+pattern items are defined. The only non-stardard items is the ^ which
+represent the current opening character of a pair being pressed.
+
+By default, the PairTools plugin uses '\w,^'. This means that it will not
+automatically close the pair when there is a WORD character or the same
+opening character of a defined-pair on the left.
+
+
+Basic regex-like "rules" would be:
+
+        ^       Any opening character of a defined pair
+        \w      Any WORD character
+        \$      The dollar sign
+        \*      The star sign
+        \^      The uparrow sign
+        Any Character that requires no escaping in regular expression.
+
+Here is a example: >
+
+        let g:cpp_smartclosefield = '^,\w,\*,&'
+<
+
+*4.4* Pair Deletion                                          *pt-pair-deletion*
+
+This feature allows the deletion of an empty pair. For example, assume the
+user typed the following line:
+
+	int function[|]
+
+He has mistakenly type '[' instead of '('. To removed the brackets, the user 
+only need to press the backspace key to delete both the opening '[' and the
+closing ']':
+
+	int function|
+
+Note: This feature is compatible with the undo and redo commands.
+
+*4.5* Surround                                                    *pt-surround*
+
+This feature has two modes: inline and block. It is triggered in Vim Visual 
+Mode by selecting text or line(s) the user wants to surround and by pressing 
+the opening character of a defined pair to surround it (them) with that pair.
+
+The inline mode is used to surround a sequence of character within a line.
+Suppose you want to surround the word not with double quotes in the following 
+sentence:
+
+	To be or not to be, that is the question!
+
+The user would select the characters 'n', 'o', 't', with either the mouse or
+by hitting the sequence "v-e" and press the double quote key:
+
+	To be or "not" to be, that is the question!
+
+Selecting the characters of a whole line can be tricky and can result in a 
+block surround even though the intent was to use the inline surround. This
+will be discussed after the presentation of the block mode.
+
+The block mode is used to add, above and below a block of text, the opening 
+and closing characters of a pair respectively. Suppose the user has the 
+following bit of C code and wants to put it between new braces {}.
+
+	int editor = 846
+        int funfactor = 313
+	vim = (editor << 2) + c
+
+All the user has to do is to select the three lines of code and press '{'.
+
+	{
+	    int editor = 846
+	    int funfactor = 313
+	    vim = (editor << 2) + c
+	}
+
+Not only does the block mode surround the piece of code with braces, but also
+adjust the indentation based on Vim local 'shiftwidth' option.
+
+As said earlier, selecting all characters in a single line can lead to
+confusion and here is why. When the user select a line with "SHIFT-v" or using 
+the combination "v-$" from anywhere inside the line, it actually selects an 
+invisible character at the end of line which is the EOL character. This tells 
+the plugin the user wants to use block surrounding. 
+
+To avoid this confusion when inline surround is needed, the user must use the 
+'v' key to select all characters but the EOL. One could put the cursor at the 
+first character of a line and press "v-$-h" to bring the selection on the last 
+visible character. This way the inline mode will be used for the entire line.
+
+Note: This feature is compatible with the undo and redo commands.
+
+*4.6* Carriage Return Expansion                  *pt-carriage-return-expansion*
+
+This feature is quite simple. Once the plugin has auto-closed a pair the user
+can press the enter key to have the opening character above the cursor and the
+closing character below the cursor. The cursor is indented. Suppose the user
+simple press '{':
+
+	{|}
+
+With the cursor inside the empty pair, the user can press the enter key to
+have the following result:
+
+	{
+	    |
+	}
+
+The indentation is based on the local 'shiftwidth' option.
+
+Note: This feature is compatible with the undo and redo commands.
+
+*4.7* Special Handlings                                  *pt-special-handlings*
+
+This section contains information about the special handling of some pairs.
+
+When expressing a string with a double quote, it is possible to add a double 
+quote between string double quote delimiters when it is preceded by a 
+backslash. 
+
+Suppose the user wants to write the following: 
+
+        string str = "\""
+
+The user must type:
+
+        1. string str = "|"
+        2. string str = "\|"
+        3. string str = "\"|"
+        4. string str = "\""|  (Press double once more)
+
+If the backslash is omitted, the user will step out of the string and he will
+have an empty string. When the backslash is preceded by another backslash,
+such that the expression would looks like:
+
+        string str = "\\|"
+
+Pressing the double quote will result into stepping out.
+
+The single quote string is limited when inserting another single quote within.
+It is not possible to add a single quote on the last character of the string,
+as it will automatically step out.
+
+A single quote can be used as an apostrophe in a string using single quotes
+delimiter if and only if there is another one beside. To achieve this, the 
+user should use the |forced-pairs| sub-feature.
+
+==============================================================================
+*5.* Installation                                       *pairtools-install*
+
+The PairTools plugin is easily installed. Just drop the pairtools.vim into the
+user plugin directory and the pairtools.txt into the doc directory.
+
+To install the help file, use the following command inside Vim: >
+    
+        :helptags ~/.vim/doc            (Linux)
+        :helptags $HOME\vimfiles\doc    (Windows)
+<
+Now all that remains is to set the features options per filetypes using the 
+{filetypename}.vim files inside the user ftplugin directory.
+
+==============================================================================
+*6.* Filetype Files Examples                            *pairtools-examples*
+
+C++ File Example
+
+The following example is what could be set to use all feature with C++ files.
+It is assumed that the plugin is globally enabled. This code must be insert
+into cpp.vim or similar filename understood by Vim as being C++ related inside
+the 'runtimepath' first folder: >
+
+        " Enable PairTools for CPP
+        let g:cpp_pairtools = 1
+
+        " Set pairs for Auto-Close and Forced-Pair
+        let g:cpp_autoclose = 1
+        let g:cpp_closepairs = "[:],{:},(:),':',\":\""
+
+        " Set syntax field preventing some PairTools magic
+        let g:cpp_antimagic = 1
+        let g:cpp_antimagicfield = "Comment,String,Special,Constant"
+
+        " Set Smart-Close rules as {pairs, WORD character, *, &)
+        let g:cpp_smartclose = 1
+        let g:cpp_smartcloserules = '^,\w,\*,&'
+
+        " Enable pair deletion and CR expansion
+        let g:cpp_pairdeletion = 1
+        let g:cpp_crexpand = 1
+
+        " Enable surround
+        let g:cpp_surround = 1
+<
+
+Vim Help File Examples
+
+The following example set feature for Vim Help File filetype. It should be
+inserted in help.vim file or a similar filename:  >
+
+        " Enable PairTools for this file-type
+        let g:help_pairtools = 1
+
+        " Set pairs for
+        let g:help_autoclose = 1
+        let g:help_closepairs = "*:*,|:|,':'"
+
+        " No syntax fields
+        let g:help_antimagic = 0
+        let g:help_antimagicfield = ""
+
+        " Use smart pairs
+        let g:help_smartclose = 1
+        let g:help_smartcloserules = '^,\w'
+
+        " Enable pair deletion and disable CR expansion
+        let g:help_pairdeletion = 1
+        let g:help_crexpand = 0
+
+        " Enable surround
+        let g:help_surround = 1
+<
+
+It is a good practice to set options enable even thought they are all enabled
+by default, as in subsequent version they could be all disabled by default.
+
+Notes: The default values are set to properly work with Vim Script filetype.
+
+==============================================================================
+*7.* Few Thoughts                                       *pairtools-thoughts*
+
+- Using the repeat command '.' with |auto-close| doesn't work as expected by a 
+  user. The closing character will not appear even though the user type the
+  ending character to step out of the pair.
+
+- Currently, when editing a Vim Script, pressing the double quote to start a
+  comment will auto-close it with another double quote.
+
+- Syntaxes with which the PairTools plugin was tested are: 
+
+        C, C++, VHDL, Vim Help and Vim Script.
+
+- I've tried the following "multi-character pairs" used in web development 
+  languages such as PHP and Ruby and they seem to work fine with the 
+  auto-close feature without special support:
+
+        <% %> | <? ?>
+
+  Even thought these ones work, the plugin isn't design with the purpose of
+  supporting multi-character pairs. They will auto-close but the other
+  features won't work as expected. There is no plan to support multi-character 
+  pairs at this moment. You can possibly work around this limitation by
+  specifying the pairs "<:>,%:%,?:?" which are expect to work properly with
+  all features.
+
+==============================================================================
+*8.* License                                            *pairtools-license*
+
+The PairTools plugin and this help file are licensed under the MIT license.
+
+Copyright (C) 2011 by Martin Lafrenière
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+
+==============================================================================
+*9.* Credits                                            *pairtools-credits*
+
+The author of this plugin is Martin Lafrenière <pairtools@gmail.com>.
+
+
+ vim:tw=78:ts=4:ft=help:norl:
