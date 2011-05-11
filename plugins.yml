@@ -49,3 +49,5 @@ plugins:
     git: git://github.com/nelstrom/gundo.vim.git
   conque:
     svn: http://conque.googlecode.com/svn/trunk/
+  pairtools:
+    git: git://github.com/MartinLafreniere/vim-PairTools.git
