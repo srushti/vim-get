@@ -24,7 +24,7 @@ if has('autocmd')
   autocmd FileType html let g:html_indent_strict=1
   autocmd BufNewFile,BufRead Gemfile setfiletype ruby
   autocmd BufNewFile,BufRead *.j setfiletype objc
-  autocmd BufWritePre *.rb,*.py,*.js :call <SID>StripTrailingWhitespaces()
+  autocmd BufWritePre *.haml,*.css,*.scss,*.sass,*.coffee,*.rb,*.py,*.js :call <SID>StripTrailingWhitespaces()
 endif
 
 set nocompatible
@@ -301,4 +301,5 @@ syntax enable
 
 filetype plugin on
 set ofu=syntaxcomplete#Complete
+
 
