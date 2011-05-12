@@ -70,6 +70,7 @@ task :install do
           in_directory(s) { FileUtils.cp_r Dir["#{f}/*"], "#{DOTVIM}/#{f}" }
         end
       end
+      system(script_urls[s]['post_install']) if script_urls[s] && script_urls[s]['post_install']
     end
   end
   FileUtils.cp "dotvimrc", "#{ENV['HOME']}/.vimrc"
