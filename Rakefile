@@ -60,19 +60,27 @@ task :install do
       end
     end
   end
+  copy_dot_files
   in_directory('plugins') do
     SCRIPTS.each do |s|
       if !File.directory?(s)
         puts "#{s} doesn't exist. Please run 'rake preinstall'"
       else
-        puts "installing #{s}"
-        FOLDERS.each do |f|
-          in_directory(s) { FileUtils.cp_r Dir["#{f}/*"], "#{DOTVIM}/#{f}" }
+        if File.directory?("#{s}/.svn")
+          in_directory(s) { system("svn export . --force #{DOTVIM}") }
+        else
+          puts "installing #{s}"
+          FOLDERS.each do |f|
+            in_directory(s) { FileUtils.cp_r Dir["#{f}/*"], "#{DOTVIM}/#{f}" }
+          end
         end
       end
       system(script_urls[s]['post_install']) if script_urls[s] && script_urls[s]['post_install']
     end
   end
+end
+
+def copy_dot_files
   FileUtils.cp "dotvimrc", "#{ENV['HOME']}/.vimrc"
   FileUtils.cp "dotgvimrc", "#{ENV['HOME']}/.gvimrc"
 end
