@@ -20,6 +20,10 @@ elseif has("gui_gtk2")
   set guifont=Courier\ 10\ pitch
   set guioptions-=T " remove toolbar
 
+  set noerrorbells
+  set visualbell
+  set t_vb=
+
 elseif has("x11")
 elseif has("gui_win32")
 end
@@ -35,3 +39,4 @@ set lines=45
 
 " Tab headings
 set gtl=%t gtt=%F
+
