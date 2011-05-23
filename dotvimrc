@@ -231,10 +231,13 @@ nmap <silent> <leader>f :FufFile<CR>
 nmap <silent> <leader>b :FufBuffer<CR>
 let g:fuzzy_ignore = '.o;.obj;.bak;.exe;.pyc;.pyo;.DS_Store;.db'
 
-" Rails.vim shortcuts ********************************************************
+" Rails.vim shortcuts *********************************************************
 nmap <silent> <unique> <leader>s :.Rake<CR>
 nmap <silent> <unique> <leader>S :Rake<CR>
 nmap <silent> <unique> <leader>- :Rake -<CR>
+
+" Fugitive ********************************************************************
+autocmd BufReadPost fugitive://* set bufhidden=delete
 
 " yankring*********************************************************************
 let g:yankring_history_dir = expand('$HOME/.vim/tmp')
@@ -301,6 +304,7 @@ syntax enable
 
 filetype plugin on
 set ofu=syntaxcomplete#Complete
+
 
 
 
