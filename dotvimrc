@@ -24,7 +24,7 @@ if has('autocmd')
   autocmd FileType html let g:html_indent_strict=1
   autocmd BufNewFile,BufRead Gemfile setfiletype ruby
   autocmd BufNewFile,BufRead *.j setfiletype objc
-  autocmd BufWritePre *.haml,*.css,*.scss,*.sass,*.coffee,*.rb,*.py,*.js,Rakefile,Gemfile :call <SID>StripTrailingWhitespaces()
+  autocmd BufWritePre *.haml,*.css,*.scss,*.sass,*.coffee,*.rb,*.py,*.js,Rakefile,Gemfile,*.md :call <SID>StripTrailingWhitespaces()
 endif
 
 set nocompatible
@@ -266,8 +266,6 @@ let g:AutoComplPop_BehaviorKeywordLength = 2
 
 " Mac *************************************************************************
 if has("mac")
-  nmap <silent> <D-Left> <C-o>
-  nmap <silent> <D-Right> <C-i>
 endif
 
 " Windows *********************************************************************
@@ -296,8 +294,8 @@ let g:miniBufExplModSelTarget = 1
 set hid
 
 " alt+n or alt+p to navigate between entries in QuickFix
-map <silent> <m-p> :cp <cr>
-map <silent> <m-n> :cn <cr>
+map <silent><m-p> :cp <CR>
+map <silent><m-n> :cn <CR>
 
 " Change which file opens after executing :Rails command
 let g:rails_default_file='config/database.yml'
