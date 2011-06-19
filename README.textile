@@ -8,4 +8,4 @@ Also
 @rake uninstall@ Deletes ~/.vim
 @rake reinstall@ Uninstall, install.
 
-If you want to add another plugin, just edit the plugins.yml file & add the name & url of the source control of the plugin to the SCRIPTS array in the Rakefile.
+If you want to add another plugin, just edit the plugins.yml file and add the name & url of the source control of the plugin, and add the name to the SCRIPTS array in the Rakefile.
