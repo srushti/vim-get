@@ -3,7 +3,7 @@ require 'yaml'
 
 SCRIPTS_WITH_RAKE = {'Command-T' => 'make', 'nerdtree' => 'install'}
 FOLDERS = %w(colors ftdetect ftplugin indent syntax doc plugin autoload snippets macros after ruby)
-SCRIPTS = %w(personal tabular vim-cucumber vim-rails vim-fugitive vim-haml ack.vim snipmate.vim vim-spec nerdcommenter vim-bufonly vim-endwise vim-surround vim-yankring vim-fuzzyfinder supertab rvm.vim vim-unimpaired vim-rake vim-javascript vim-ruby-refactoring matchit vim-l9 cscope gundo conque pairtools) + SCRIPTS_WITH_RAKE.keys
+SCRIPTS = %w(personal tabular vim-cucumber vim-rails vim-fugitive vim-haml ack.vim snipmate.vim vim-spec nerdcommenter vim-bufonly vim-endwise vim-surround vim-yankring vim-fuzzyfinder supertab rvm.vim vim-unimpaired vim-rake vim-javascript vim-ruby-refactoring matchit vim-l9 cscope gundo conque AutoClose rubycomplete) + SCRIPTS_WITH_RAKE.keys
 DOTVIM = "#{ENV['HOME']}/.vim"
 
 desc "Get latest on all plugins"

@@ -49,5 +49,7 @@ plugins:
     git: git://github.com/nelstrom/gundo.vim.git
   conque:
     svn: http://conque.googlecode.com/svn/trunk/
-  pairtools:
-    git: git://github.com/MartinLafreniere/vim-PairTools.git
+  AutoClose:
+    git: git://github.com/vim-scripts/AutoClose.git
+  rubycomplete:
+    git: git://github.com/vim-scripts/rubycomplete.vim.git
