@@ -9,7 +9,7 @@ set wildmode=list:longest,full
 set autowriteall
 
 " Show syntax highlighting groups for word under cursor
-nmap <C-A-S> :call <SID>SynStack()<CR>
+nmap <C-S-S> :call <SID>SynStack()<CR>
 function! <SID>SynStack()
   if !exists("*synstack")
     return
