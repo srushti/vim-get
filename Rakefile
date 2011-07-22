@@ -81,8 +81,20 @@ task :install do
 end
 
 def copy_dot_files
-  FileUtils.cp "dotvimrc", "#{ENV['HOME']}/.vimrc"
-  FileUtils.cp "dotgvimrc", "#{ENV['HOME']}/.gvimrc"
+  link_if_it_doesnt_exist('vimrc')
+  link_if_it_doesnt_exist('gvimrc')
+end
+
+def link_if_it_doesnt_exist(file, condition = 'f')
+  system(<<-EOSCRIPT
+    if [ ! -#{condition} $HOME/.#{file} ]; then
+      ln -s $PWD/#{file} $HOME/.#{file}
+      echo "Linking .#{file}"
+    else
+      echo "Skipping .#{file}, it already exists"
+    fi
+  EOSCRIPT
+        )
 end
 
 task :default => :install
