@@ -54,6 +54,20 @@ nmap <unique> <leader>es :sp %%
 nmap <unique> <leader>ev :vsp %%
 nmap <unique> <leader>et :tabe %%
 
+nmap <unique> <s-tab> <c-o>
+
+" Emacs style ctrl-a & ctrl-e in insert mode
+inoremap <c-e> <c-r>=InsCtrlE()<cr>
+function! InsCtrlE()
+    try
+        norm! i
+        return "\<c-o>A"
+    catch
+        return "\<c-e>"
+    endtry
+endfunction
+imap <C-a> <C-o>I
+
 " Tabs ************************************************************************
 "set sta " a <Tab> in an indent inserts 'shiftwidth' spaces
 
