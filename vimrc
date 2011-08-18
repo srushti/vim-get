@@ -31,12 +31,12 @@ endfunction
 
 if has('autocmd')
   autocmd FileType html let g:html_indent_strict=1
-  autocmd BufNewFile,BufRead Gemfile setfiletype ruby
+  autocmd BufNewFile,BufRead {Gemfile,Rakefile,Vagrantfile,Thorfile,config.ru} setfiletype ruby
   autocmd BufNewFile,BufRead *.j setfiletype objc
   autocmd BufWritePre *.haml,*.erb,*.css,*.scss,*.sass,*.coffee,*.rb,*.py,*.js,Rakefile,Gemfile,*.md :call <SID>StripTrailingWhitespaces()
 endif
 
-set nocompatible
+set nocompatible  " We don't want vi compatibility.
 
 " Shortcuts********************************************************************
 nmap <silent> <unique> <leader>w :w<CR>
