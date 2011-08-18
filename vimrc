@@ -180,6 +180,12 @@ imap aa @
 filetype plugin indent on
 " To show current filetype use: set filetype
 
+" Remember last location in file
+if has("autocmd")
+  au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
+    \| exe "normal g'\"" | endif
+endif
+
 autocmd FileType html set filetype=xhtml " we couldn't care less about html
 
 " Inser New Line **************************************************************
@@ -285,6 +291,14 @@ nmap <silent> <unique> <leader>u :GundoToggle<CR>
 let g:AutoComplPop_IgnoreCaseOption = 0
 let g:AutoComplPop_BehaviorKeywordLength = 2
 
+" Unimpaired configuration ****************************************************
+" Bubble single lines
+nmap <C-Up> [e
+nmap <C-Down> ]e
+" Bubble multiple lines
+vmap <C-Up> [egv
+vmap <C-Down> ]egv
+
 " -----------------------------------------------------------------------------
 " | OS Specific |
 " | (GUI stuff goes in gvimrc) |
@@ -305,11 +319,8 @@ endif
 " Open NERDTree on start
 "autocmd VimEnter * exe 'NERDTree' | wincmd l 
 
-filetype on  " Automatically detect file types.
-set nocompatible  " We don't want vi compatibility.
-
 " Add recently accessed projects menu (project plugin)
-set viminfo^=!
+filetype on  " Automatically detect file types.
 
 " Minibuffer Explorer Settings
 let g:miniBufExplMapWindowNavVim = 1
