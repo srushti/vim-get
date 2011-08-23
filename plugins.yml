@@ -37,8 +37,6 @@ plugins:
     git: git://github.com/chrismetcalf/vim-yankring.git
   vim-javascript:
     git: git://github.com/pangloss/vim-javascript.git
-  vim-autoclose:
-    git: git://github.com/Townk/vim-autoclose.git
   vim-ruby-refactoring:
     git: git://github.com/ecomba/vim-ruby-refactoring.git
   vim-fuzzyfinder:
@@ -49,7 +47,9 @@ plugins:
     git: git://github.com/nelstrom/gundo.vim.git
   conque:
     svn: http://conque.googlecode.com/svn/trunk/
-  AutoClose:
-    git: git://github.com/vim-scripts/AutoClose.git
+  delimitMate:
+    git: git://github.com/Raimondi/delimitMate.git
   rubycomplete:
     git: git://github.com/vim-scripts/rubycomplete.vim.git
+  tagbar:
+    git: git://github.com/majutsushi/tagbar.git
