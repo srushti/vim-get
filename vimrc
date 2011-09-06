@@ -284,6 +284,9 @@ set wildignore+=*~,.DS_Store,*.class,*.gif,*.png,*.sqlite3,cscope.*,tags
 " Gundo ***********************************************************************
 nmap <silent> <unique> <leader>u :GundoToggle<CR>
 
+" Tagbar **********************************************************************
+nmap <silent> <unique> <leader>c :TagbarToggle<CR>
+
 " autocomplpop ****************************************************************
 " complete option
 "set complete=.,w,b,u,t,k
