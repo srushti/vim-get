@@ -271,6 +271,7 @@ nmap <silent> <unique> <leader>- :Rake -<CR>
 
 " Fugitive ********************************************************************
 autocmd BufReadPost fugitive://* set bufhidden=delete
+autocmd BufReadPost *.fugitiveblame set bufhidden=delete
 autocmd BufReadPost .git/* set bufhidden=delete
 
 " yankring*********************************************************************
