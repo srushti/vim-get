@@ -1,9 +1,15 @@
 require 'rake'
 require 'yaml'
 
+def script_urls
+  yaml_file = File.open(File.join(File.dirname(__FILE__), 'plugins.yml'))
+  yaml = YAML.load(yaml_file)
+  @scripts ||= yaml['plugins']
+end
+
 SCRIPTS_WITH_RAKE = {'Command-T' => 'make', 'nerdtree' => 'install'}
 FOLDERS = %w(colors ftdetect ftplugin indent syntax doc plugin autoload snippets macros after ruby)
-SCRIPTS = %w(personal tabular vim-cucumber vim-rails vim-fugitive vim-haml ack.vim snipmate.vim vim-spec nerdcommenter vim-bufonly vim-endwise vim-surround vim-yankring vim-fuzzyfinder supertab rvm.vim vim-unimpaired vim-rake vim-javascript vim-ruby-refactoring matchit vim-l9 cscope gundo conque delimitMate rubycomplete tagbar) + SCRIPTS_WITH_RAKE.keys
+SCRIPTS = script_urls.keys + %w(personal cscope matchit vim-spec) + SCRIPTS_WITH_RAKE.keys
 DOTVIM = "#{ENV['HOME']}/.vim"
 
 desc "Get latest on all plugins"
@@ -37,12 +43,6 @@ def in_directory(directory)
   Dir.chdir directory
   yield
   Dir.chdir original_dir
-end
-
-def script_urls
-  yaml_file = File.open(File.join(File.dirname(__FILE__), 'plugins.yml'))
-  yaml = YAML.load(yaml_file)
-  @scripts ||= yaml['plugins']
 end
 
 desc "Install the files into ~/.vim"
