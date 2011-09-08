@@ -1,35 +1,43 @@
 require 'rake'
 require 'yaml'
 
-def script_urls
+def plugin_urls
   yaml_file = File.open(File.join(File.dirname(__FILE__), 'plugins.yml'))
   yaml = YAML.load(yaml_file)
-  @scripts ||= yaml['plugins']
+  @plugins ||= yaml['plugins']
 end
 
-SCRIPTS_WITH_RAKE = {'Command-T' => 'make', 'nerdtree' => 'install'}
+PLUGINS_WITH_RAKE = {'Command-T' => 'make', 'nerdtree' => 'install'}
 FOLDERS = %w(colors ftdetect ftplugin indent syntax doc plugin autoload snippets macros after ruby)
-SCRIPTS = script_urls.keys + %w(personal cscope matchit vim-spec) + SCRIPTS_WITH_RAKE.keys
+PLUGINS = plugin_urls.keys + %w(personal cscope matchit vim-spec) + PLUGINS_WITH_RAKE.keys
 DOTVIM = "#{ENV['HOME']}/.vim"
 
 desc "Get latest on all plugins"
 task :preinstall do
   FileUtils.mkdir_p('plugins')
   in_directory('plugins') do
-    SCRIPTS.each do |f|
-      if File.directory?(f)
-        in_directory(f) { update_current_dir }
-      elsif script_urls[f]
-        clone_project(f, script_urls[f])
+    if ENV['PLUGIN'].nil?
+      PLUGINS.each do |plugin|
+        get_latest(plugin)
       end
+    else
+      get_latest(ENV['PLUGIN'])
     end
   end
 end
 
+def get_latest(plugin)
+  if File.directory?(plugin)
+    in_directory(plugin) { update_current_dir }
+  elsif plugin_urls[plugin]
+    clone_project(plugin, plugin_urls[plugin])
+  end
+end
+
 def clone_project(name, script_url_yaml)
-  system("git clone #{script_urls[name]['git']} #{name}") if script_url_yaml['git']
-  system("hg clone #{script_urls[name]['hg']} #{name}") if script_url_yaml['hg']
-  system("svn checkout #{script_urls[name]['svn']} #{name}") if script_url_yaml['svn']
+  system("git clone #{plugin_urls[name]['git']} #{name}") if script_url_yaml['git']
+  system("hg clone #{plugin_urls[name]['hg']} #{name}") if script_url_yaml['hg']
+  system("svn checkout #{plugin_urls[name]['svn']} #{name}") if script_url_yaml['svn']
 end
 
 def update_current_dir
@@ -51,31 +59,31 @@ task :install do
   FileUtils.mkdir_p "#{DOTVIM}/tmp"
 
   in_directory('plugins') do
-    SCRIPTS_WITH_RAKE.each do |s, command|
-      if !File.directory?(s)
-        puts "#{s} doesn't exist. Please run 'rake preinstall'"
+    PLUGINS_WITH_RAKE.each do |plugin, command|
+      if !File.directory?(plugin)
+        puts "#{plugin} doesn't exist. Please run 'rake preinstall'"
       else
-        puts "making #{s}"
-        in_directory(s) { system "rake #{command}" }
+        puts "making #{plugin}"
+        in_directory(plugin) { system "rake #{command}" }
       end
     end
   end
   copy_dot_files
   in_directory('plugins') do
-    SCRIPTS.each do |s|
-      if !File.directory?(s)
-        puts "#{s} doesn't exist. Please run 'rake preinstall'"
+    PLUGINS.each do |plugin|
+      if !File.directory?(plugin)
+        puts "#{plugin} doesn't exist. Please run 'rake preinstall'"
       else
-        if File.directory?("#{s}/.svn")
-          in_directory(s) { system("svn export . --force #{DOTVIM}") }
+        if File.directory?("#{plugin}/.svn")
+          in_directory(plugin) { system("svn export . --force #{DOTVIM}") }
         else
-          puts "installing #{s}"
+          puts "installing #{plugin}"
           FOLDERS.each do |f|
-            in_directory(s) { FileUtils.cp_r Dir["#{f}/*"], "#{DOTVIM}/#{f}" }
+            in_directory(plugin) { FileUtils.cp_r Dir["#{f}/*"], "#{DOTVIM}/#{f}" }
           end
         end
       end
-      system(script_urls[s]['post_install']) if script_urls[s] && script_urls[s]['post_install']
+      system(plugin_urls[plugin]['post_install']) if plugin_urls[plugin] && plugin_urls[plugin]['post_install']
     end
   end
 end
