@@ -53,3 +53,5 @@ plugins:
     git: git://github.com/vim-scripts/rubycomplete.vim.git
   tagbar:
     git: git://github.com/majutsushi/tagbar.git
+  vim-coffee-script:
+    git: git://github.com/vim-scripts/vim-coffee-script.git
