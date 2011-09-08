@@ -36,6 +36,16 @@ if has('autocmd')
   autocmd BufWritePre *.haml,*.erb,*.css,*.scss,*.sass,*.coffee,*.rb,*.py,*.js,Rakefile,Gemfile,*.md :call <SID>StripTrailingWhitespaces()
 endif
 
+command! -nargs=0 -bar Qargs execute 'args ' . QuickfixFilenames()
+function! QuickfixFilenames()
+  " Building a hash ensures we get each buffer only once
+  let buffer_numbers = {}
+  for quickfix_item in getqflist()
+    let buffer_numbers[quickfix_item['bufnr']] = bufname(quickfix_item['bufnr'])
+  endfor
+  return join(values(buffer_numbers))
+endfunction
+
 set nocompatible  " We don't want vi compatibility.
 
 " Shortcuts********************************************************************
@@ -137,6 +147,7 @@ set cursorline
 
 " Searching *******************************************************************
 set hlsearch " highlight search
+nmap <silent><unique> <C-esc> :nohl<cr>
 set incsearch " incremental search, search as you type
 set ignorecase " Ignore case when searching
 set smartcase " Ignore case when searching lowercase
@@ -273,6 +284,7 @@ nmap <silent> <unique> <leader>- :Rake -<CR>
 autocmd BufReadPost fugitive://* set bufhidden=delete
 autocmd BufReadPost *.fugitiveblame set bufhidden=delete
 autocmd BufReadPost .git/* set bufhidden=delete
+autocmd BufReadPost __Gundo_* set bufhidden=delete
 
 " yankring*********************************************************************
 let g:yankring_history_dir = expand('$HOME/.vim/tmp')
