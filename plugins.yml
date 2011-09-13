@@ -28,7 +28,7 @@ plugins:
   supertab:
     git: git://github.com/ervandew/supertab.git
   rvm.vim:
-    git: git://github.com/csexton/rvm.vim.git
+    git: git://github.com/tpope/vim-rvm.git
   vim-unimpaired:
     git: git://github.com/tpope/vim-unimpaired.git
   vim-rake:
