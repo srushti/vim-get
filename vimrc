@@ -227,10 +227,12 @@ set listchars=tab:▸\ ,eol:¬
 " " Cursor Movement *************************************************************
 " " Make cursor move by visual lines instead of file lines (when wrapping)
 " map <up> gk
-" map k gk
+map k gk
+map <up> gk
 " imap <up> <C-o>gk
 " map <down> gj
-" map j gj
+map j gj
+map <down> gj
 " imap <down> <C-o>gj
 " map E ge
 
