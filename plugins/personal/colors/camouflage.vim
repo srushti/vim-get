@@ -70,5 +70,5 @@ hi link htmlEndTag      Keyword
 " Special for Diff
 hi DiffAdd          guifg=NONE  guibg=#002200
 hi DiffDelete       guifg=NONE  guibg=#220000
-hi DiffChange       guifg=NONE  guibg=#222200
-hi DiffText         guifg=NONE  guibg=#778899
+hi DiffChange       guifg=NONE  guibg=#222222
+hi DiffText         guifg=NONE  guibg=#31383F
