@@ -49,7 +49,7 @@ endfunction
 set nocompatible  " We don't want vi compatibility.
 
 " Shortcuts********************************************************************
-nmap <silent> <unique> <leader>w :w<CR>
+nmap <silent> <unique> <leader>w :wa<CR>
 nmap <silent> <unique> <leader>W :wa<CR>
 nmap <silent> <unique> <leader>x "*x
 nmap <silent> <unique> <leader>p "*p
