@@ -31,7 +31,7 @@ endfunction
 
 if has('autocmd')
   autocmd FileType html let g:html_indent_strict=1
-  autocmd BufNewFile,BufRead {Gemfile,Rakefile,Vagrantfile,Thorfile,config.ru} setfiletype ruby
+  autocmd BufNewFile,BufRead {Gemfile,Rakefile,Guardfile,Vagrantfile,Thorfile,config.ru} setfiletype ruby
   autocmd BufNewFile,BufRead *.j setfiletype objc
   autocmd BufWritePre *.haml,*.erb,*.css,*.scss,*.sass,*.coffee,*.rb,*.py,*.js,Rakefile,Gemfile,*.md :call <SID>StripTrailingWhitespaces()
 endif
@@ -226,14 +226,12 @@ set listchars=tab:▸\ ,eol:¬
 
 " " Cursor Movement *************************************************************
 " " Make cursor move by visual lines instead of file lines (when wrapping)
-" map <up> gk
-map k gk
 map <up> gk
-" imap <up> <C-o>gk
-" map <down> gj
-map j gj
+map k gk
+" imap <up> <C-o>gk # uncomment at your own risk. it interferes with Fuf.
 map <down> gj
-" imap <down> <C-o>gj
+map j gj
+" imap <down> <C-o>gj # same warning as the imap above.
 " map E ge
 
 " Ruby stuff ******************************************************************
