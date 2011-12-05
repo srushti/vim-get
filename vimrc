@@ -285,6 +285,7 @@ autocmd BufReadPost fugitive://* set bufhidden=delete
 autocmd BufReadPost *.fugitiveblame set bufhidden=delete
 autocmd BufReadPost .git/* set bufhidden=delete
 autocmd BufReadPost __Gundo_* set bufhidden=delete
+autocmd BufReadPost GoToFile set bufhidden=delete
 
 " yankring*********************************************************************
 let g:yankring_history_dir = expand('$HOME/.vim/tmp')
@@ -333,7 +334,7 @@ endif
 " | Startup |
 " -----------------------------------------------------------------------------
 " Open NERDTree on start
-"autocmd VimEnter * exe 'NERDTree' | wincmd l 
+"autocmd VimEnter * exe 'NERDTree' | wincmd l
 
 " Add recently accessed projects menu (project plugin)
 filetype on  " Automatically detect file types.
