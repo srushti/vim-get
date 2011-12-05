@@ -300,6 +300,11 @@ nmap <silent> <unique> <leader>u :GundoToggle<CR>
 " Tagbar **********************************************************************
 nmap <silent> <unique> <leader>c :TagbarToggle<CR>
 
+" Ack *************************************************************************
+if has('linux')
+  let g:ackprg="ack-grep -H --nocolor --nogroup --column"
+endif
+
 " autocomplpop ****************************************************************
 " complete option
 "set complete=.,w,b,u,t,k
