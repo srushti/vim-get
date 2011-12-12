@@ -55,3 +55,5 @@ plugins:
     git: git://github.com/majutsushi/tagbar.git
   vim-coffee-script:
     git: git://github.com/vim-scripts/vim-coffee-script.git
+  repeat:
+    git: git://github.com/tpope/vim-repeat.git
