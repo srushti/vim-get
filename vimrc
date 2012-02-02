@@ -33,8 +33,9 @@ if has('autocmd')
   autocmd FileType html let g:html_indent_strict=1
   autocmd BufEnter {Gemfile,Rakefile,Guardfile,Vagrantfile,Thorfile,config.ru} setfiletype ruby
   autocmd BufEnter *.j setfiletype objc
-  autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
+  autocmd BufWritePre *.*,{Gemfile,Rakefile,Guardfile,Vagrantfile,Thorfile,config.ru} :call <SID>StripTrailingWhitespaces()
   autocmd BufEnter *.yml.sample setfiletype yaml
+  autocmd BufLeave,FocusLost *.*,{Gemfile,Rakefile,Guardfile,Vagrantfile,Thorfile,config.ru} :wa
 endif
 
 command! -nargs=0 -bar Qargs execute 'args ' . QuickfixFilenames()
