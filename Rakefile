@@ -7,7 +7,7 @@ def plugin_urls
   @plugins ||= yaml['plugins']
 end
 
-PLUGINS_WITH_RAKE = {'Command-T' => 'make', 'nerdtree' => 'install'}
+PLUGINS_WITH_RAKE = {'Command-T' => 'make'}
 FOLDERS = %w(colors ftdetect ftplugin indent syntax doc plugin autoload snippets macros after ruby)
 PLUGINS = plugin_urls.keys + %w(personal cscope matchit vim-spec) + PLUGINS_WITH_RAKE.keys
 DOTVIM = "#{ENV['HOME']}/.vim"
