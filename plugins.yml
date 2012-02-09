@@ -49,8 +49,6 @@ plugins:
     svn: http://conque.googlecode.com/svn/trunk/
   delimitMate:
     git: git://github.com/Raimondi/delimitMate.git
-  rubycomplete:
-    git: git://github.com/vim-scripts/rubycomplete.vim.git
   tagbar:
     git: git://github.com/majutsushi/tagbar.git
   vim-coffee-script:
