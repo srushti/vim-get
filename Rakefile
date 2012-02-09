@@ -1,15 +1,21 @@
 require 'rake'
 require 'yaml'
 
-def plugin_urls
+def load_plugin_urls
   yaml_file = File.open(File.join(File.dirname(__FILE__), 'plugins.yml'))
   yaml = YAML.load(yaml_file)
-  @plugins ||= yaml['plugins']
+  yaml['plugins']
 end
 
-PLUGINS_WITH_RAKE = {'Command-T' => 'make'}
-FOLDERS = %w(colors ftdetect ftplugin indent syntax doc plugin autoload snippets macros after ruby)
-PLUGINS = plugin_urls.keys + %w(personal cscope matchit vim-spec) + PLUGINS_WITH_RAKE.keys
+def plugin_urls
+  @plugins ||= load_plugin_urls
+end
+
+PLUGINS_WITH_MAKE = {'sparkup' => 'vim-install'}
+PLUGINS_WITH_RAKE = {}
+FOLDERS = %w(colors ftdetect ftplugin indent syntax doc plugin autoload snippets macros after ruby nerdtree_plugin)
+PLUGINS_WITHOUT_RAKE = plugin_urls.keys + %w(personal cscope matchit vim-spec)
+PLUGINS = PLUGINS_WITHOUT_RAKE + PLUGINS_WITH_RAKE.keys + PLUGINS_WITH_MAKE.keys
 DOTVIM = "#{ENV['HOME']}/.vim"
 
 desc "Get latest on all plugins"
@@ -59,18 +65,12 @@ task :install do
   FileUtils.mkdir_p "#{DOTVIM}/tmp"
 
   in_directory('plugins') do
-    PLUGINS_WITH_RAKE.each do |plugin, command|
-      if !File.directory?(plugin)
-        puts "#{plugin} doesn't exist. Please run 'rake preinstall'"
-      else
-        puts "making #{plugin}"
-        in_directory(plugin) { system "rake #{command}" }
-      end
-    end
+    install_plugins(PLUGINS_WITH_RAKE, 'rake')
+    install_plugins(PLUGINS_WITH_MAKE, 'make')
   end
   copy_dot_files
   in_directory('plugins') do
-    PLUGINS.each do |plugin|
+    PLUGINS_WITHOUT_RAKE.each do |plugin|
       if !File.directory?(plugin)
         puts "#{plugin} doesn't exist. Please run 'rake preinstall'"
       else
@@ -84,6 +84,17 @@ task :install do
         end
       end
       system(plugin_urls[plugin]['post_install']) if plugin_urls[plugin] && plugin_urls[plugin]['post_install']
+    end
+  end
+end
+
+def install_plugins(plugins, command)
+  plugins.each do |plugin, task|
+    if !File.directory?(plugin)
+      puts "#{plugin} doesn't exist. Please run 'rake preinstall'"
+    else
+      puts "making #{plugin}"
+      in_directory(plugin) { system "#{command} #{task}" }
     end
   end
 end

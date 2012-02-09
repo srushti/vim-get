@@ -4,6 +4,7 @@
 " -----------------------------------------------------------------------------
 
 let mapleader = ","
+let maplocalleader = "\\"
 set wildmenu
 set wildmode=list:longest,full
 set autowriteall
@@ -67,6 +68,7 @@ nmap <unique> <leader>ev :vsp %%
 nmap <unique> <leader>et :tabe %%
 
 nmap <unique> <s-tab> <c-o>
+inoremap <c-cr> <esc>A<cr>
 
 " Emacs style ctrl-a & ctrl-e in insert mode
 inoremap <c-e> <c-r>=InsCtrlE()<cr>
@@ -101,6 +103,28 @@ try
 catch
 endtry
 
+" Highlight VCS conflict markers
+match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
+
+" Easy buffer navigation
+noremap <C-h>  <C-w>h
+noremap <C-j>  <C-w>j
+noremap <C-k>  <C-w>k
+noremap <C-l>  <C-w>l
+
+nnoremap <C-u> gUiw
+inoremap <C-u> <esc>gUiwea
+
+" Split line (sister to [J]oin lines)
+" The normal use of S is covered by cc, so don't worry about shadowing it.
+nnoremap S i<cr><esc><right>
+
+" Better Completion
+set completeopt=longest,preview
+
+" Toggle paste
+set pastetoggle=<F8>
+
 function! Tabstyle_tabs()
   " Using 4 column tabs
   set softtabstop=4
@@ -128,8 +152,8 @@ else
 endif
 
 " Indenting *******************************************************************
-set ai " Automatically set the indent of a new line (local to buffer)
-set si " smartindent  (local to buffer)
+set autoindent " Automatically set the indent of a new line (local to buffer)
+set smartindent " smartindent  (local to buffer)
 
 " Scrollbars ******************************************************************
 set sidescrolloff=2
@@ -274,7 +298,6 @@ let NERDTreeIgnore=['.class$', '\~$', '^cscope', 'tags']
 
 " fuzzyfinder_textmate ********************************************************
 nmap <silent> <leader>f :FufFile<CR>
-nmap <silent> <leader>b :FufBuffer<CR>
 let g:fuzzy_ignore = '.o;.obj;.bak;.exe;.pyc;.pyo;.DS_Store;.db'
 
 " Rails.vim shortcuts *********************************************************
@@ -289,12 +312,112 @@ autocmd BufReadPost .git/* set bufhidden=delete
 autocmd BufReadPost __Gundo_* set bufhidden=delete
 autocmd BufReadPost GoToFile set bufhidden=delete
 
+nnoremap <leader>gd :Gdiff<cr>
+nnoremap <leader>gs :Gstatus<cr>
+nnoremap <leader>gw :Gwrite<cr>
+nnoremap <leader>ga :Gadd<cr>
+nnoremap <leader>gb :Gblame<cr>
+nnoremap <leader>gco :Gcheckout<cr>
+nnoremap <leader>gci :Gcommit<cr>
+nnoremap <leader>gm :Gmove<cr>
+nnoremap <leader>gr :Gremove<cr>
+nnoremap <leader>gl :Shell git gl -18<cr>:wincmd \|<cr>
+
+augroup ft_fugitive
+    au!
+
+    au BufNewFile,BufRead .git/index setlocal nolist
+augroup END
+
 " yankring*********************************************************************
 let g:yankring_history_dir = expand('$HOME/.vim/tmp')
+nnoremap <silent> <F6> :YRShow<cr>
 
-" Command-T *******************************************************************
-let g:CommandTMatchWindowAtTop = 1
-set wildignore+=*~,.DS_Store,*.class,*.gif,*.png,*.sqlite3,cscope.*,tags
+" Ctrl-P **********************************************************************
+let g:ctrlp_dont_split = 'NERD_tree_2'
+let g:ctrlp_jump_to_buffer = 0
+let g:ctrlp_map = '<leader>p'
+let g:ctrlp_working_path_mode = 0
+let g:ctrlp_match_window_reversed = 1
+let g:ctrlp_split_window = 0
+let g:ctrlp_max_height = 20
+let g:ctrlp_extensions = ['tag']
+
+let g:ctrlp_prompt_mappings = {
+\ 'PrtSelectMove("j")':   ['<c-j>', '<down>', '<s-tab>'],
+\ 'PrtSelectMove("k")':   ['<c-k>', '<up>', '<tab>'],
+\ 'PrtHistory(-1)':       ['<c-n>'],
+\ 'PrtHistory(1)':        ['<c-p>'],
+\ 'ToggleFocus()':        ['<c-tab>'],
+\ }
+
+let ctrlp_filter_greps = "".
+    \ "egrep -iv '\\.(" .
+    \ "swp|swo|log|so|o|pyc|jpe?g|png|gif|mo|po" .
+    \ ")$' | " .
+    \ "egrep -v '^(\\./)?(" .
+    \ "libs/|deploy/vendor/|.git/|.hg/|.svn/|.*migrations/" .
+    \ ")'"
+
+let my_ctrlp_user_command = "" .
+    \ "find %s '(' -type f -or -type l ')' -maxdepth 15 -not -path '*/\\.*/*' | " .
+    \ ctrlp_filter_greps
+
+let my_ctrlp_git_command = "" .
+    \ "cd %s && git ls-files | " .
+    \ ctrlp_filter_greps
+
+let g:ctrlp_user_command = ['.git/', my_ctrlp_git_command, my_ctrlp_user_command]
+
+nnoremap <leader>t :CtrlPTag<cr>
+nnoremap <leader>b :CtrlPBuffer<cr>
+
+" Rainbow Parentheses *********************************************************
+
+nnoremap <leader>R :RainbowParenthesesToggle<cr>
+let g:rbpt_colorpairs = [
+    \ ['brown',       'RoyalBlue3'],
+    \ ['Darkblue',    'SeaGreen3'],
+    \ ['darkgray',    'DarkOrchid3'],
+    \ ['darkgreen',   'firebrick3'],
+    \ ['darkcyan',    'RoyalBlue3'],
+    \ ['darkred',     'SeaGreen3'],
+    \ ['darkmagenta', 'DarkOrchid3'],
+    \ ['brown',       'firebrick3'],
+    \ ['gray',        'RoyalBlue3'],
+    \ ['black',       'SeaGreen3'],
+    \ ['darkmagenta', 'DarkOrchid3'],
+    \ ['Darkblue',    'firebrick3'],
+    \ ['darkgreen',   'RoyalBlue3'],
+    \ ['darkcyan',    'SeaGreen3'],
+    \ ['darkred',     'DarkOrchid3'],
+    \ ['red',         'firebrick3'],
+    \ ]
+let g:rbpt_max = 16
+
+
+" Threesome ********************************************************************
+
+let g:threesome_leader = "-"
+
+let g:threesome_initial_mode = "grid"
+
+let g:threesome_initial_layout_grid = 1
+let g:threesome_initial_layout_loupe = 0
+let g:threesome_initial_layout_compare = 0
+let g:threesome_initial_layout_path = 0
+
+let g:threesome_initial_diff_grid = 1
+let g:threesome_initial_diff_loupe = 0
+let g:threesome_initial_diff_compare = 0
+let g:threesome_initial_diff_path = 0
+
+let g:threesome_initial_scrollbind_grid = 0
+let g:threesome_initial_scrollbind_loupe = 0
+let g:threesome_initial_scrollbind_compare = 0
+let g:threesome_initial_scrollbind_path = 0
+
+let g:threesome_wrap = "nowrap"
 
 " Gundo ***********************************************************************
 nmap <silent> <unique> <leader>u :GundoToggle<CR>
@@ -306,6 +429,10 @@ nmap <silent> <unique> <leader>c :TagbarToggle<CR>
 if has('linux')
   let g:ackprg="ack-grep -H --nocolor --nogroup --column"
 endif
+map <leader>a :Ack!
+
+" Turbux **********************************************************************
+let g:no_turbux_mappings = 1
 
 " autocomplpop ****************************************************************
 " complete option

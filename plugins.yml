@@ -23,8 +23,8 @@ plugins:
     git: git://github.com/tpope/vim-endwise.git
   vim-surround:
     git: git://github.com/tpope/vim-surround.git
-  Command-T:
-    git: git://github.com/wincent/Command-T.git
+  ctrlp:
+    git: git://github.com/kien/ctrlp.vim.git
   supertab:
     git: git://github.com/ervandew/supertab.git
   rvm.vim:
