@@ -128,3 +128,6 @@ task :reinstall => [:uninstall, :install]
 
 desc "Get latest on all plugins"
 task :update => [:preinstall, :install]
+
+desc "Get latest on all plugins and reinstall from scratch"
+task :clean_update => [:preinstall, :reinstall]
