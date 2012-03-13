@@ -67,6 +67,11 @@ nmap <unique> <leader>es :sp %%
 nmap <unique> <leader>ev :vsp %%
 nmap <unique> <leader>et :tabe %%
 
+nnoremap <unique> <C-h> <C-w>h
+nnoremap <unique> <C-j> <C-w>j
+nnoremap <unique> <C-k> <C-w>k
+nnoremap <unique> <C-l> <C-w>l
+
 nmap <unique> <s-tab> <c-o>
 inoremap <c-cr> <esc>A<cr>
 
