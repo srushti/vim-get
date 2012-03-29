@@ -11,7 +11,7 @@ def plugin_urls
   @plugins ||= load_plugin_urls
 end
 
-PLUGINS_WITH_MAKE = {'sparkup' => 'vim-install'}
+PLUGINS_WITH_MAKE = {}
 PLUGINS_WITH_RAKE = {}
 FOLDERS = %w(colors ftdetect ftplugin indent syntax doc plugin autoload snippets macros after ruby nerdtree_plugin)
 PLUGINS_WITHOUT_RAKE = plugin_urls.keys + %w(personal cscope matchit vim-spec)

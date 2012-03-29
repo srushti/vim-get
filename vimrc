@@ -301,10 +301,6 @@ let NERDTreeMouseMode=1
 " Ignoring java class files
 let NERDTreeIgnore=['.class$', '\~$', '^cscope', 'tags']
 
-" fuzzyfinder_textmate ********************************************************
-nmap <silent> <leader>f :FufFile<CR>
-let g:fuzzy_ignore = '.o;.obj;.bak;.exe;.pyc;.pyo;.DS_Store;.db'
-
 " Rails.vim shortcuts *********************************************************
 nmap <silent> <unique> <leader>s :.Rake<CR>
 nmap <silent> <unique> <leader>S :Rake<CR>
