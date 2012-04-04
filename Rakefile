@@ -41,13 +41,13 @@ def get_latest(plugin)
 end
 
 def clone_project(name, script_url_yaml)
-  system("git clone #{plugin_urls[name]['git']} #{name}") if script_url_yaml['git']
+  system("git clone #{plugin_urls[name]['git']} #{name} && git submodule update --init --recursive") if script_url_yaml['git']
   system("hg clone #{plugin_urls[name]['hg']} #{name}") if script_url_yaml['hg']
   system("svn checkout #{plugin_urls[name]['svn']} #{name}") if script_url_yaml['svn']
 end
 
 def update_current_dir
-  system('git pull origin master') if File.directory?('.git')
+  system('git pull origin master && git submodule update --init --recursive') if File.directory?('.git')
   system('hg pull && hg update') if File.directory?('.hg')
   system('svn up') if File.directory?('.svn')
 end
