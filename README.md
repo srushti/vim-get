@@ -52,10 +52,6 @@ The leader is mapped to `,`
 `,,`     - Toggle between last two buffers
 
 
-<<<<<<< HEAD
-=======
-
->>>>>>> Modified README
 ### Open/Edit files
 
 `,ew`   - Open/Edit file in the current directory
@@ -68,13 +64,9 @@ The leader is mapped to `,`
 
 ### Execute Ruby Specs
 
-<<<<<<< HEAD
 `,s`     - Run one spec under the cursor
 
 `,S`     - Run all specs in the current file
-=======
-
->>>>>>> Modified README
 
 `,-`     - Rerun last rake command (most likely the last run spec)
 
@@ -90,10 +82,7 @@ The leader is mapped to `,`
 
 `<tab>` - auto complete or expand snippet
 
-<<<<<<< HEAD
 See `.vimrc` for more.
-=======
->>>>>>> Modified README
 
 ## Plugins
 
@@ -145,8 +134,6 @@ Provides text-objects for Ruby blocks
 
 http://vimcasts.org/blog/2010/12/a-text-object-for-ruby-blocks/
 
-<<<<<<< HEAD
-=======
 ### sparkup (`ctrl+e`)
 
 Expand CSS selectors `div.event` in to markup `<div class='event'></div>`
