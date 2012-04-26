@@ -313,16 +313,16 @@ autocmd BufReadPost .git/* set bufhidden=delete
 autocmd BufReadPost __Gundo_* set bufhidden=delete
 autocmd BufReadPost GoToFile set bufhidden=delete
 
-nnoremap <leader>gd :Gdiff<cr>
-nnoremap <leader>gs :Gstatus<cr>
-nnoremap <leader>gw :Gwrite<cr>
-nnoremap <leader>ga :Gadd<cr>
-nnoremap <leader>gb :Gblame<cr>
-nnoremap <leader>gco :Gcheckout<cr>
-nnoremap <leader>gci :Gcommit<cr>
-nnoremap <leader>gm :Gmove<cr>
-nnoremap <leader>gr :Gremove<cr>
-nnoremap <leader>gl :Shell git gl -18<cr>:wincmd \|<cr>
+nnoremap <silent> <leader>gd :Gdiff<cr>
+nnoremap <silent> <leader>gs :Gstatus<cr>
+nnoremap <silent> <leader>gw :Gwrite<cr>
+nnoremap <silent> <leader>ga :Gadd<cr>
+nnoremap <silent> <leader>gb :Gblame<cr>
+nnoremap <silent> <leader>gco :Gcheckout<cr>
+nnoremap <silent> <leader>gci :Gcommit<cr>
+nnoremap <silent> <leader>gm :Gmove<cr>
+nnoremap <silent> <leader>gr :Gremove<cr>
+nnoremap <silent> <leader>gl :Glog<cr>
 
 augroup ft_fugitive
     au!
