@@ -75,6 +75,9 @@ nnoremap <unique> <C-l> <C-w>l
 nmap <unique> <s-tab> <c-o>
 inoremap <c-cr> <esc>A<cr>
 
+" Help
+autocmd FileType help :nmap <silent> q :q<cr>
+
 " Emacs style ctrl-a & ctrl-e in insert mode
 inoremap <c-e> <c-r>=InsCtrlE()<cr>
 function! InsCtrlE()
