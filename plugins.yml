@@ -35,8 +35,6 @@ plugins:
     git: git://github.com/tpope/vim-rake.git
   yankring:
     git: git://github.com/vim-scripts/YankRing.vim.git
-  cscope:
-    git: git://github.com/vim-scripts/cscope.vim.git
   vim-javascript:
     git: git://github.com/pangloss/vim-javascript.git
   vim-ruby-refactoring:
