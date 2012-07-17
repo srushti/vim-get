@@ -71,6 +71,10 @@ nnoremap <unique> <C-h> <C-w>h
 nnoremap <unique> <C-j> <C-w>j
 nnoremap <unique> <C-k> <C-w>k
 nnoremap <unique> <C-l> <C-w>l
+nnoremap <unique> <C-Up> <C-w>Up
+nnoremap <unique> <C-Left> <C-w>Left
+nnoremap <unique> <C-Right> <C-w>Right
+nnoremap <unique> <C-Down> <C-w>Down
 
 nmap <unique> <s-tab> <c-o>
 inoremap <c-cr> <esc>A<cr>
