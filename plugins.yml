@@ -53,3 +53,5 @@ plugins:
     git: git://github.com/tpope/vim-repeat.git
   padrino:
     git: git://github.com/gerardc/vim-padrino.git
+  easy-motion:
+    git: git://github.com/Lokaltog/vim-easymotion.git
