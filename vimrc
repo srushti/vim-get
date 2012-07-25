@@ -180,8 +180,9 @@ noremap <leader>v :vsp<CR>
 noremap <leader>h :split<CR>
 
 " Cursor highlights ***********************************************************
-set cursorline
-"set cursorcolumn
+au WinLeave * set nocursorline nocursorcolumn
+au WinEnter * set cursorline cursorcolumn
+set cursorline cursorcolumn
 
 " Searching *******************************************************************
 set hlsearch " highlight search
