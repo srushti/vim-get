@@ -502,3 +502,7 @@ syntax enable
 filetype plugin on
 set ofu=syntaxcomplete#Complete
 
+" Last but not least, allow for local overrides
+if filereadable(expand("~/.vimrc.local"))
+  source ~/.vimrc.local
+endif
