@@ -140,7 +140,6 @@ Expand CSS selectors `div.event` in to markup `<div class='event'></div>`
 
 http://net.tutsplus.com/articles/general/quick-tip-even-quicker-markup-with-sparkup/
 
->>>>>>> Modified README
 ### fugitive
 
 Git integration
