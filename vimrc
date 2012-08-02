@@ -132,7 +132,7 @@ inoremap <C-u> <esc>gUiwea
 nnoremap S i<cr><esc><right>
 
 " Better Completion
-set completeopt=longest,preview
+set completeopt=menu,longest,preview
 
 " Toggle paste
 set pastetoggle=<F8>
