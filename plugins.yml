@@ -55,3 +55,7 @@ plugins:
     git: git://github.com/gerardc/vim-padrino.git
   easy-motion:
     git: git://github.com/Lokaltog/vim-easymotion.git
+  textobj-rubyblock:
+    git: git://github.com/nelstrom/vim-textobj-rubyblock.git
+  textobj-user:
+    git: git://github.com/kana/vim-textobj-user.git
