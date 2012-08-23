@@ -461,11 +461,11 @@ let g:AutoComplPop_BehaviorKeywordLength = 2
 
 " Unimpaired configuration ****************************************************
 " Bubble single lines
-nmap <C-Up> [e
-nmap <C-Down> ]e
+nmap <C-Up> [e==
+nmap <C-Down> ]e==
 " Bubble multiple lines
-vmap <C-Up> [egv
-vmap <C-Down> ]egv
+vmap <C-Up> [egv=gv
+vmap <C-Down> ]egv=gv
 
 " -----------------------------------------------------------------------------
 " | OS Specific |
