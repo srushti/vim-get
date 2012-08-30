@@ -332,9 +332,7 @@ autocmd BufReadPost GoToFile set bufhidden=delete
 nnoremap <silent> <leader>gd :Gdiff<cr>
 nnoremap <silent> <leader>gs :Gstatus<cr>
 nnoremap <silent> <leader>gw :Gwrite<cr>
-nnoremap <silent> <leader>ga :Gadd<cr>
 nnoremap <silent> <leader>gb :Gblame<cr>
-nnoremap <silent> <leader>gco :Gcheckout<cr>
 nnoremap <silent> <leader>gci :Gcommit<cr>
 nnoremap <silent> <leader>gm :Gmove<cr>
 nnoremap <silent> <leader>gr :Gremove<cr>
