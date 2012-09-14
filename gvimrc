@@ -13,7 +13,7 @@ if has("gui_macvim")
   set guioptions-=T " remove toolbar
   set transparency=10
   macmenu &File.New\ Tab key=<nop>
-  map <D-t> :CommandT<CR>
+  map <D-t> :CtrlP<CR>
 
 elseif has("gui_gtk2")
 

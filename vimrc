@@ -326,7 +326,6 @@ nmap <silent> <unique> <leader>- :Rake -<CR>
 autocmd BufReadPost fugitive://* set bufhidden=delete
 autocmd BufReadPost *.fugitiveblame set bufhidden=delete
 autocmd BufReadPost .git/* set bufhidden=delete
-autocmd BufReadPost __Gundo_* set bufhidden=delete
 autocmd BufReadPost GoToFile set bufhidden=delete
 
 nnoremap <silent> <leader>gd :Gdiff<cr>
@@ -436,6 +435,7 @@ let g:threesome_wrap = "nowrap"
 
 " Gundo ***********************************************************************
 nmap <silent> <unique> <leader>u :GundoToggle<CR>
+autocmd BufReadPost __Gundo_* set bufhidden=delete
 
 " Tagbar **********************************************************************
 nmap <silent> <unique> <leader>c :TagbarToggle<CR>
