@@ -25,6 +25,7 @@ hi StatusLine       guifg=#00D2D2 guibg=#38290B gui=italic
 hi StatusLineNC     guifg=#00D2D2 guibg=#2F2928 gui=none
 hi VertSplit        guifg=#00D2D2 guibg=#201A19 gui=none
 hi Folded           guifg=#00D2D2 guibg=#070100 gui=none
+hi FoldColumn       guifg=#00D2D2 guibg=#070100 gui=none
 hi Title            guifg=#FFCA39 guibg=NONE    gui=bold
 hi Visual           guibg=#313131 gui=none
 hi SpecialKey       guifg=#4A4A59 gui=none
@@ -47,25 +48,25 @@ hi Type guifg=#A5A300 gui=none
 hi pythonBuiltin guifg=#FF6E22 gui=none
 
 " Special for Ruby
-hi link rubyClass             Keyword 
-hi link rubyModule            Keyword 
-hi link rubyKeyword           Keyword 
+hi link rubyClass             Keyword
+hi link rubyModule            Keyword
+hi link rubyKeyword           Keyword
 hi link rubyOperator          Operator
 hi link rubyIdentifier        Identifier
 hi link rubyInstanceVariable  Identifier
 hi link rubyGlobalVariable    Identifier
 hi link rubyClassVariable     Identifier
-hi link rubyConstant          Type  
+hi link rubyConstant          Type
 
 " Special for XML
-hi link xmlTag          Keyword 
-hi link xmlTagName      Conditional 
-hi link xmlEndTag       Keyword 
+hi link xmlTag          Keyword
+hi link xmlTagName      Conditional
+hi link xmlEndTag       Keyword
 
 " Special for HTML
-hi link htmlTag         Keyword 
-hi link htmlTagName     Conditional 
-hi link htmlEndTag      Keyword 
+hi link htmlTag         Keyword
+hi link htmlTagName     Conditional
+hi link htmlEndTag      Keyword
 
 " Special for Diff
 hi DiffAdd          guifg=NONE  guibg=#002200
