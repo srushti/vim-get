@@ -57,3 +57,5 @@ plugins:
     git: git://github.com/nelstrom/vim-textobj-rubyblock.git
   textobj-user:
     git: git://github.com/kana/vim-textobj-user.git
+  mustache:
+    git: git://github.com/juvenn/mustache.vim.git
