@@ -368,7 +368,7 @@ let g:ctrlp_prompt_mappings = {
 
 let ctrlp_filter_greps = "".
     \ "egrep -iv '\\.(" .
-    \ "swp|swo|log|so|o|pyc|jpe?g|png|gif|mo|po" .
+    \ "swp|swo|log|so|o|pyc|jpe?g|png|gif|mo|po|class|jar" .
     \ ")$' | " .
     \ "egrep -v '^(\\./)?(" .
     \ "libs/|deploy/vendor/|.git/|.hg/|.svn/|.*migrations/" .
@@ -386,7 +386,6 @@ let g:ctrlp_user_command = ['.git/', my_ctrlp_git_command, my_ctrlp_user_command
 
 nnoremap <leader>t :CtrlPTag<cr>
 nnoremap <leader>b :CtrlPBuffer<cr>
-
 
 " Gundo ***********************************************************************
 nmap <silent> <unique> <leader>u :GundoToggle<CR>
