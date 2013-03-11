@@ -47,8 +47,8 @@ plugins:
     git: git://github.com/Raimondi/delimitMate.git
   tagbar:
     git: git://github.com/majutsushi/tagbar.git
-  vim-coffee-script:
-    git: git://github.com/vim-scripts/vim-coffee-script.git
+  coffee-script:
+    git: git://github.com/kchmck/vim-coffee-script.git
   repeat:
     git: git://github.com/tpope/vim-repeat.git
   easy-motion:
@@ -59,3 +59,5 @@ plugins:
     git: git://github.com/kana/vim-textobj-user.git
   mustache:
     git: git://github.com/juvenn/mustache.vim.git
+  gitgutter:
+    git: git://github.com/airblade/vim-gitgutter.git
