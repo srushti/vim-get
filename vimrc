@@ -39,7 +39,7 @@ if has('autocmd')
     autocmd BufEnter *.j setfiletype objc
     autocmd BufWritePre ?* :call <SID>StripTrailingWhitespaces()
     autocmd BufEnter *.yml.sample setfiletype yaml
-    autocmd BufLeave,FocusLost ?* :wa
+    autocmd BufLeave,FocusLost ?* nested :wa
   augroup END
 endif
 
