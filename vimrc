@@ -37,7 +37,7 @@ if has('autocmd')
     autocmd FileType html let g:html_indent_strict=1
     autocmd BufEnter {Gemfile,Rakefile,Guardfile,Capfile,Vagrantfile,Thorfile,config.ru} setfiletype ruby
     autocmd BufEnter *.j setfiletype objc
-    autocmd BufWritePre ?* :call <SID>StripTrailingWhitespaces()
+    autocmd InsertLeave ?* :call <SID>StripTrailingWhitespaces()
     autocmd BufEnter *.yml.sample setfiletype yaml
     autocmd BufLeave,FocusLost ?* nested :wa
   augroup END
@@ -90,12 +90,12 @@ autocmd FileType help :nnoremap <buffer> <silent> q :q<cr>
 " Emacs style ctrl-a & ctrl-e in insert mode
 inoremap <c-e> <c-r>=InsCtrlE()<cr>
 function! InsCtrlE()
-    try
-        norm! i
-        return "\<c-o>A"
-    catch
-        return "\<c-e>"
-    endtry
+  try
+    norm! i
+    return "\<c-o>A"
+  catch
+    return "\<c-e>"
+  endtry
 endfunction
 imap <C-a> <C-o>I
 
@@ -242,7 +242,7 @@ filetype plugin indent on
 " Remember last location in file
 if has("autocmd")
   au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
-    \| exe "normal g'\"" | endif
+        \| exe "normal g'\"" | endif
 endif
 
 autocmd FileType html set filetype=xhtml " we couldn't care less about html
@@ -339,9 +339,9 @@ nnoremap <silent> <leader>gr :Gremove<cr>
 nnoremap <silent> <leader>gl :Glog<cr>
 
 augroup ft_fugitive
-    au!
+  au!
 
-    au BufNewFile,BufRead .git/index setlocal nolist
+  au BufNewFile,BufRead .git/index setlocal nolist
 augroup END
 
 " yankring*********************************************************************
@@ -359,28 +359,28 @@ let g:ctrlp_max_height = 20
 let g:ctrlp_extensions = ['tag']
 
 let g:ctrlp_prompt_mappings = {
-\ 'PrtSelectMove("j")':   ['<c-j>', '<down>', '<s-tab>'],
-\ 'PrtSelectMove("k")':   ['<c-k>', '<up>', '<tab>'],
-\ 'PrtHistory(-1)':       ['<c-n>'],
-\ 'PrtHistory(1)':        ['<c-p>'],
-\ 'ToggleFocus()':        ['<c-tab>'],
-\ }
+      \ 'PrtSelectMove("j")':   ['<c-j>', '<down>', '<s-tab>'],
+      \ 'PrtSelectMove("k")':   ['<c-k>', '<up>', '<tab>'],
+      \ 'PrtHistory(-1)':       ['<c-n>'],
+      \ 'PrtHistory(1)':        ['<c-p>'],
+      \ 'ToggleFocus()':        ['<c-tab>'],
+      \ }
 
 let ctrlp_filter_greps = "".
-    \ "egrep -iv '\\.(" .
-    \ "swp|swo|log|so|o|pyc|jpe?g|png|gif|mo|po|class|jar" .
-    \ ")$' | " .
-    \ "egrep -v '^(\\./)?(" .
-    \ "libs/|deploy/vendor/|.git/|.hg/|.svn/|.*migrations/|tmp/" .
-    \ ")'"
+      \ "egrep -iv '\\.(" .
+      \ "swp|swo|log|so|o|pyc|jpe?g|png|gif|mo|po|class|jar" .
+      \ ")$' | " .
+      \ "egrep -v '^(\\./)?(" .
+      \ "libs/|deploy/vendor/|.git/|.hg/|.svn/|.*migrations/|tmp/" .
+      \ ")'"
 
 let my_ctrlp_user_command = "" .
-    \ "find %s '(' -type f -or -type l ')' -maxdepth 15 -not -path '*/\\.*/*' | " .
-    \ ctrlp_filter_greps
+      \ "find %s '(' -type f -or -type l ')' -maxdepth 15 -not -path '*/\\.*/*' | " .
+      \ ctrlp_filter_greps
 
 let my_ctrlp_git_command = "" .
-    \ "cd %s && git ls-files && git ls-files -o | " .
-    \ ctrlp_filter_greps
+      \ "cd %s && git ls-files && git ls-files -o | " .
+      \ ctrlp_filter_greps
 
 let g:ctrlp_user_command = ['.git/', my_ctrlp_git_command, my_ctrlp_user_command]
 
