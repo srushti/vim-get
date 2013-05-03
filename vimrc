@@ -39,9 +39,10 @@ if has('autocmd')
     autocmd FileType html let g:html_indent_strict=1
     autocmd BufEnter {Gemfile,Rakefile,Guardfile,Capfile,Vagrantfile,Thorfile,config.ru} setfiletype ruby
     autocmd BufEnter *.j setfiletype objc
-    autocmd InsertLeave ?* :call <SID>StripTrailingWhitespaces()
+    autocmd BufWritePre ?* :call <SID>StripTrailingWhitespaces()
     autocmd BufEnter *.yml.sample setfiletype yaml
     autocmd BufLeave,FocusLost ?* nested :wa
+    autocmd BufReadPost #* set bufhidden=delete
   augroup END
 endif
 
