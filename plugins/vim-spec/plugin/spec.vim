@@ -31,7 +31,7 @@ let loaded_ruby_single_spec = 1
 function! s:ExecuteRubySpec()
   let old_make = &makeprg
   try
-    let &l:makeprg = "bundle exec rspec " . expand("%:p") . " --format documentation -l " . line(".")
+    let &l:makeprg = "zeus rspec -l " . line(".") . " " . expand("%:p")
     exe 'make'
     cwindow
   finally
