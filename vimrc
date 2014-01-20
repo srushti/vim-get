@@ -404,9 +404,6 @@ map <leader>a :Ack!
 let g:no_turbux_mappings = 1
 
 " Git Gutter ******************************************************************
-let g:gitgutter_enabled = 0
-let g:gitgutter_on_bufenter = 0
-let g:gitgutter_all_on_focusgained = 0
 if has('autocmd')
   augroup gitgutter_cmds
     au!
