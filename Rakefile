@@ -13,8 +13,8 @@ end
 
 PLUGINS_WITH_MAKE = {}
 PLUGINS_WITH_RAKE = {}
-FOLDERS = %w(colors ftdetect ftplugin indent syntax doc plugin autoload snippets macros after ruby nerdtree_plugin compiler)
-PLUGINS_WITHOUT_RAKE = plugin_urls.keys + %w(personal cscope matchit vim-spec)
+FOLDERS = %w(colors ftdetect ftplugin indent syntax doc plugin autoload snippets macros after ruby nerdtree_plugin compiler lib)
+PLUGINS_WITHOUT_RAKE = plugin_urls.keys
 PLUGINS = PLUGINS_WITHOUT_RAKE + PLUGINS_WITH_RAKE.keys + PLUGINS_WITH_MAKE.keys
 DOTVIM = "#{ENV['HOME']}/.vim"
 
