@@ -3,6 +3,8 @@
 " | (see gvimrc for gui vim settings) |
 " -----------------------------------------------------------------------------
 
+set nocompatible  " We don't want vi compatibility.
+
 let mapleader = ","
 let maplocalleader = "\\"
 set wildmenu
@@ -39,6 +41,7 @@ if has('autocmd')
     autocmd FileType html let g:html_indent_strict=1
     autocmd BufEnter {Gemfile,Rakefile,Guardfile,Capfile,Vagrantfile,Thorfile,config.ru} setfiletype ruby
     autocmd BufEnter *.j setfiletype objc
+    autocmd BufEnter *.md setfiletype markdown
     autocmd BufWritePre ?* :call <SID>StripTrailingWhitespaces()
     autocmd BufEnter *.yml.sample setfiletype yaml
     autocmd BufLeave,FocusLost ?* nested :wa
@@ -55,8 +58,6 @@ function! QuickfixFilenames()
   endfor
   return join(values(buffer_numbers))
 endfunction
-
-set nocompatible  " We don't want vi compatibility.
 
 " Shortcuts********************************************************************
 nmap <silent> <unique> <leader>w :wa<CR>
