@@ -79,13 +79,9 @@ nnoremap <unique> <C-h> <C-w>h
 nnoremap <unique> <C-j> <C-w>j
 nnoremap <unique> <C-k> <C-w>k
 nnoremap <unique> <C-l> <C-w>l
-nnoremap <unique> <C-Up> <C-w>Up
-nnoremap <unique> <C-Left> <C-w>Left
-nnoremap <unique> <C-Right> <C-w>Right
-nnoremap <unique> <C-Down> <C-w>Down
-nnoremap <unique> <Tab> <C-w><C-w>
+nnoremap <unique> <Tab> <C-w>w
+nnoremap <unique> <S-Tab> <C-w>W
 
-nmap <unique> <s-tab> <c-o>
 inoremap <c-cr> <esc>A<cr>
 
 " Help
@@ -375,7 +371,7 @@ let ctrlp_filter_greps = "".
       \ "swp|swo|log|so|o|pyc|jpe?g|png|gif|mo|po|class|jar" .
       \ ")$' | " .
       \ "egrep -v '^(\\./)?(" .
-      \ "libs/|deploy/vendor/|.git/|.hg/|.svn/|.*migrations/|tmp/" .
+      \ "libs/|deploy/vendor/|.git/|.hg/|.svn/|.*migrations/|tmp/|.idea/" .
       \ ")'"
 
 let my_ctrlp_user_command = "" .
