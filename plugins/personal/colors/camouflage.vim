@@ -6,7 +6,7 @@ if exists("syntax_on")
   syntax reset
 endif
 
-let colors_name = "camouflage"
+let g:colors_name = "camouflage"
 
 if version >= 700
   hi CursorLine     guibg=#100A09
@@ -29,7 +29,7 @@ hi FoldColumn       guifg=#00D2D2 guibg=#070100 gui=none
 hi Title            guifg=#FFCA39 guibg=NONE    gui=bold
 hi Visual           guibg=#313131 gui=none
 hi SpecialKey       guifg=#4A4A59 gui=none
-hi Search           guifg=NONE    guibg=NONE    gui=underline
+hi Search           guifg=NONE    guibg=NONE    gui=underline ctermfg=NONE    ctermbg=NONE    cterm=underline
 hi Underline                                    gui=none
 
 " Syntax highlighting
