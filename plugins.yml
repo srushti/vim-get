@@ -67,3 +67,5 @@ plugins:
     git: git://github.com/juvenn/mustache.vim.git
   gitgutter:
     git: git://github.com/airblade/vim-gitgutter.git
+  airline:
+    git: git@github.com:bling/vim-airline.git
