@@ -9,6 +9,7 @@ let mapleader = ","
 let maplocalleader = "\\"
 set wildmenu
 set wildmode=list:longest,full
+set lazyredraw
 set autowriteall
 set autoread
 
@@ -175,6 +176,9 @@ set smartindent " smartindent  (local to buffer)
 " Scrollbars ******************************************************************
 set sidescrolloff=2
 set numberwidth=4
+
+" Spaces while joining ********************************************************
+set nojoinspaces
 
 " Windows *********************************************************************
 set equalalways " Multiple windows, when created, are equal in size
