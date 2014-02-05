@@ -124,7 +124,7 @@ task :uninstall do
 end
 
 desc "Blow everything out and try again."
-task :reinstall => [:uninstall, :install]
+task :reinstall => [:uninstall, :preinstall, :install]
 
 desc "Get latest on all plugins"
 task :update => [:preinstall, :install]
