@@ -10,7 +10,6 @@ if has("gui_macvim")
   set fuoptions=maxvert,maxhorz " fullscreen options (MacVim only), resized window when changed to fullscreen
   set fu
   set guifont=Monaco:h11
-  set guioptions-=T " remove toolbar
   set transparency=10
   macmenu &File.New\ Tab key=<nop>
   map <D-t> :CtrlP<CR>
@@ -18,7 +17,6 @@ if has("gui_macvim")
 elseif has("gui_gtk2")
 
   set guifont=Courier\ 10\ pitch
-  set guioptions-=T " remove toolbar
 
   set noerrorbells
   set visualbell
@@ -27,6 +25,8 @@ elseif has("gui_gtk2")
 elseif has("x11")
 elseif has("gui_win32")
 end
+
+set guioptions-=T " remove toolbar
 
 " General *********************************************************************
 set anti " Antialias font
