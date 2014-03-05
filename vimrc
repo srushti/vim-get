@@ -80,8 +80,10 @@ nnoremap <unique> <C-h> <C-w>h
 nnoremap <unique> <C-j> <C-w>j
 nnoremap <unique> <C-k> <C-w>k
 nnoremap <unique> <C-l> <C-w>l
-nnoremap <unique> <Tab> <C-w>w
-nnoremap <unique> <S-Tab> <C-w>W
+nnoremap <unique> <C-Tab> <C-w>w
+nnoremap <unique> <C-S-Tab> <C-w>W
+
+nnoremap <unique> <S-Tab> <C-o>
 
 inoremap <c-cr> <esc>A<cr>
 
