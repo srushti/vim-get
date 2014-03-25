@@ -1,79 +1,81 @@
 plugins:
   vim-rails:
-    git: git@github.com:tpope/vim-rails.git
+    git: git://github.com/tpope/vim-rails.git
   vim-cucumber:
-    git: git@github.com:tpope/vim-cucumber.git
+    git: git://github.com/tpope/vim-cucumber.git
   vim-haml:
-    git: git@github.com:tpope/vim-haml.git
+    git: git://github.com/tpope/vim-haml.git
   nerdtree:
-    git: git@github.com:scrooloose/nerdtree.git
+    git: git://github.com/scrooloose/nerdtree.git
   ack.vim:
-    git: git@github.com:mileszs/ack.vim.git
+    git: git://github.com/mileszs/ack.vim.git
   tabular:
-    git: git@github.com:godlygeek/tabular.git
+    git: git://github.com/godlygeek/tabular.git
   vim-fugitive:
-    git: git@github.com:tpope/vim-fugitive.git
+    git: git://github.com/tpope/vim-fugitive.git
   snipmate:
-    git: git@github.com:garbas/vim-snipmate.git
+    git: git://github.com/garbas/vim-snipmate.git
   snippets:
-    git: git@github.com:srushti/vim-snippets.git
+    git: git://github.com/srushti/vim-snippets.git
   vim-addon-mw-utils: #needed for snipmate
-    git: git@github.com:MarcWeber/vim-addon-mw-utils.git
+    git: git://github.com/MarcWeber/vim-addon-mw-utils.git
   tlib: #needed for snipmate
-    git: git@github.com:tomtom/tlib_vim.git
+    git: git://github.com/tomtom/tlib_vim.git
   nerdcommenter:
-    git: git@github.com:scrooloose/nerdcommenter.git
+    git: git://github.com/scrooloose/nerdcommenter.git
   vim-bufonly:
-    git: git@github.com:duff/vim-bufonly.git
+    git: git://github.com/duff/vim-bufonly.git
   vim-endwise:
-    git: git@github.com:tpope/vim-endwise.git
+    git: git://github.com/tpope/vim-endwise.git
   vim-surround:
-    git: git@github.com:tpope/vim-surround.git
+    git: git://github.com/tpope/vim-surround.git
   ctrlp:
-    git: git@github.com:kien/ctrlp.vim.git
+    git: git://github.com/kien/ctrlp.vim.git
   supertab:
-    git: git@github.com:ervandew/supertab.git
+    git: git://github.com/ervandew/supertab.git
   rvm.vim:
-    git: git@github.com:tpope/vim-rvm.git
+    git: git://github.com/tpope/vim-rvm.git
   vim-unimpaired:
-    git: git@github.com:tpope/vim-unimpaired.git
+    git: git://github.com/tpope/vim-unimpaired.git
   vim-rake:
-    git: git@github.com:tpope/vim-rake.git
+    git: git://github.com/tpope/vim-rake.git
   yankring:
-    git: git@github.com:vim-scripts/YankRing.vim.git
+    git: git://github.com/vim-scripts/YankRing.vim.git
   vim-javascript:
-    git: git@github.com:pangloss/vim-javascript.git
+    git: git://github.com/pangloss/vim-javascript.git
   vim-ruby-refactoring:
-    git: git@github.com:ecomba/vim-ruby-refactoring.git
+    git: git://github.com/ecomba/vim-ruby-refactoring.git
   gundo:
-    git: git@github.com:nelstrom/gundo.vim.git
+    git: git://github.com/nelstrom/gundo.vim.git
   conque:
     svn: http://conque.googlecode.com/svn/trunk/
   delimitMate:
-    git: git@github.com:Raimondi/delimitMate.git
+    git: git://github.com/Raimondi/delimitMate.git
   tagbar:
-    git: git@github.com:majutsushi/tagbar.git
+    git: git://github.com/majutsushi/tagbar.git
   coffee-script:
-    git: git@github.com:kchmck/vim-coffee-script.git
+    git: git://github.com/kchmck/vim-coffee-script.git
   repeat:
-    git: git@github.com:tpope/vim-repeat.git
+    git: git://github.com/tpope/vim-repeat.git
   easy-motion:
-    git: git@github.com:Lokaltog/vim-easymotion.git
+    git: git://github.com/Lokaltog/vim-easymotion.git
   textobj-rubyblock:
-    git: git@github.com:nelstrom/vim-textobj-rubyblock.git
+    git: git://github.com/nelstrom/vim-textobj-rubyblock.git
   textobj-user:
-    git: git@github.com:kana/vim-textobj-user.git
+    git: git://github.com/kana/vim-textobj-user.git
   mustache:
-    git: git@github.com:juvenn/mustache.vim.git
+    git: git://github.com/juvenn/mustache.vim.git
   gitgutter:
-    git: git@github.com:airblade/vim-gitgutter.git
+    git: git://github.com/airblade/vim-gitgutter.git
   airline:
     git: git@github.com:bling/vim-airline.git
   cscope:
     git: git@github.com:vim-scripts/cscope.vim.git
   matchit:
-    git: git@github.com:tsaleh/vim-matchit.git
+    git: git://github.com/tsaleh/vim-matchit.git
   zeus-spec:
-    git: git@github.com:srushti/zeus-spec.vim.git
+    git: git://github.com/srushti/zeus-spec.vim.git
   my.vim:
-    git: git@github.com:srushti/my.vim.git
+    git: git://github.com/srushti/my.vim.git
+  ag.vim:
+    git: git://github.com/rking/ag.vim.git
