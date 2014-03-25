@@ -418,6 +418,9 @@ if has('autocmd')
   augroup END
 endif
 
+let g:gitgutter_realtime = 0
+let g:gitgutter_eager = 0
+
 " autocomplpop ****************************************************************
 " complete option
 "set complete=.,w,b,u,t,k
