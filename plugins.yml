@@ -72,7 +72,7 @@ plugins:
   cscope:
     git: git@github.com:vim-scripts/cscope.vim.git
   matchit:
-    git: git://github.com/tsaleh/vim-matchit.git
+    git: git://github.com/vim-scripts/matchit.zip.git
   zeus-spec:
     git: git://github.com/srushti/zeus-spec.vim.git
   my.vim:
