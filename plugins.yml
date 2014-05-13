@@ -68,9 +68,7 @@ plugins:
   gitgutter:
     git: git://github.com/airblade/vim-gitgutter.git
   airline:
-    git: git@github.com:bling/vim-airline.git
-  cscope:
-    git: git@github.com:vim-scripts/cscope.vim.git
+    git: git://github.com/bling/vim-airline.git
   matchit:
     git: git://github.com/vim-scripts/matchit.zip.git
   zeus-spec:
