@@ -191,13 +191,13 @@ noremap <leader>v :vsp<CR>
 noremap <leader>h :split<CR>
 
 " Cursor highlights ***********************************************************
-au WinLeave * set nocursorline nocursorcolumn
-au WinEnter * set cursorline cursorcolumn
-set cursorline cursorcolumn
+au WinLeave * set nocursorline
+au WinEnter * set cursorline
+set cursorline
 
 " Searching *******************************************************************
 set hlsearch " highlight search
-nmap <silent><unique> <C-esc> :nohl<cr>
+nmap <silent><unique> <C-esc> :nohlsearch<CR>
 set incsearch " incremental search, search as you type
 set ignorecase " Ignore case when searching
 set smartcase " Ignore case when searching lowercase
@@ -205,7 +205,7 @@ set smartcase " Ignore case when searching lowercase
 " Colors **********************************************************************
 "set t_Co=256 " 256 colors
 syntax on " syntax highlighting
-colorscheme camouflage
+colorscheme slate
 
 " Status Line *****************************************************************
 set showcmd

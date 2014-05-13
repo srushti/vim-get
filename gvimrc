@@ -8,7 +8,7 @@
 if has("gui_macvim")
 
   set fuoptions=maxvert,maxhorz " fullscreen options (MacVim only), resized window when changed to fullscreen
-  set fu
+  "set fullscreen
   set guifont=Monaco:h11
   set transparency=10
   macmenu &File.New\ Tab key=<nop>
@@ -25,6 +25,8 @@ elseif has("gui_gtk2")
 elseif has("x11")
 elseif has("gui_win32")
 end
+
+colorscheme camouflage
 
 set guioptions-=T " remove toolbar
 
