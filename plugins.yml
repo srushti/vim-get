@@ -77,3 +77,5 @@ plugins:
     git: git://github.com/srushti/my.vim.git
   ag.vim:
     git: git://github.com/rking/ag.vim.git
+  node:
+    git: git://github.com/moll/vim-node.git
