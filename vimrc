@@ -40,7 +40,7 @@ if has('autocmd')
   augroup buffer_filetype_autocmds
     au!
     autocmd FileType html let g:html_indent_strict=1
-    autocmd BufEnter {Gemfile,Rakefile,Guardfile,Capfile,Vagrantfile,Thorfile,config.ru} setfiletype ruby
+    autocmd BufEnter {Gemfile,Rakefile,Guardfile,Capfile,Vagrantfile,Thorfile,config.ru,*.rabl} setfiletype ruby
     autocmd BufEnter *.j setfiletype objc
     autocmd BufEnter *.md setfiletype markdown
     autocmd BufWritePre ?* :call <SID>StripTrailingWhitespaces()
@@ -322,7 +322,7 @@ let NERDTreeHijackNetrw=1
 let NERDTreeMouseMode=1
 
 " Ignoring java class files
-let NERDTreeIgnore=['.class$', '\~$', '^cscope', 'tags']
+let NERDTreeIgnore=['.class$', '\~$', '^cscope', 'tags', 'node_modules', '.tmp']
 
 " Rails.vim shortcuts *********************************************************
 nmap <silent> <unique> <leader>s :.Rake<CR>
@@ -377,7 +377,7 @@ let ctrlp_filter_greps = "".
       \ "swp|swo|log|so|o|pyc|jpe?g|png|gif|mo|po|class|jar" .
       \ ")$' | " .
       \ "egrep -v '^(\\./)?(" .
-      \ "libs/|deploy/vendor/|.git/|.hg/|.svn/|.*migrations/|tmp/|.idea/" .
+      \ "libs/|deploy/vendor/|.git/|.hg/|.svn/|tmp/|.idea/|node_modules/" .
       \ ")'"
 
 let my_ctrlp_user_command = "" .
