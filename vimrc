@@ -377,7 +377,7 @@ let ctrlp_filter_greps = "".
       \ "swp|swo|log|so|o|pyc|jpe?g|png|gif|mo|po|class|jar" .
       \ ")$' | " .
       \ "egrep -v '^(\\./)?(" .
-      \ "libs/|deploy/vendor/|.git/|.hg/|.svn/|tmp/|.idea/|node_modules/" .
+      \ "libs/|deploy/vendor/|.git/|.hg/|.svn/|tmp/|.tmp/|.idea/|node_modules/" .
       \ ")'"
 
 let my_ctrlp_user_command = "" .
