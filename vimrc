@@ -205,7 +205,11 @@ set smartcase " Ignore case when searching lowercase
 " Colors **********************************************************************
 "set t_Co=256 " 256 colors
 syntax on " syntax highlighting
-colorscheme slate
+colorscheme camouflage
+
+if !has('gui_running')
+  let g:airline_theme="solarized"
+endif
 
 " Status Line *****************************************************************
 set showcmd

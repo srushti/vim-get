@@ -27,6 +27,7 @@ elseif has("gui_win32")
 end
 
 colorscheme camouflage
+let g:airline_theme="solarized"
 
 set guioptions-=T " remove toolbar
 
