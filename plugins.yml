@@ -79,3 +79,5 @@ plugins:
     git: git://github.com/rking/ag.vim.git
   node:
     git: git://github.com/moll/vim-node.git
+  vimux:
+    git: git://github.com/benmills/vimux.git
