@@ -377,7 +377,7 @@ let g:ctrlp_prompt_mappings = {
 
 let ctrlp_filter_greps = "".
       \ "egrep -iv '\\.(" .
-      \ "swp|swo|log|so|o|pyc|jpe?g|png|gif|mo|po|class|jar" .
+      \ "swp|swo|log|so|o|pyc|jpe?g|png|gif|mo|po|class|jar|DS_Store" .
       \ ")$' | " .
       \ "egrep -v '^(\\./)?(" .
       \ "libs/|deploy/vendor/|.git/|.hg/|.svn/|tmp/|.tmp/|.idea/|node_modules/" .
