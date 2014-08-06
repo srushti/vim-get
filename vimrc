@@ -63,7 +63,6 @@ endfunction
 " Shortcuts********************************************************************
 nmap <silent> <unique> <leader>w :w<CR>
 nmap <silent> <unique> <leader>W :wa<CR>
-nmap <silent> <unique> <leader>x "*x
 nmap <silent> <unique> <leader>p "*p
 nmap <silent> <unique> <C-S-Down> :A<CR>
 nmap <silent> <unique> <Space> <PageDown>
@@ -197,7 +196,7 @@ set cursorline
 
 " Searching *******************************************************************
 set hlsearch " highlight search
-nmap <silent><unique> <C-esc> :nohlsearch<CR>
+nmap <silent><unique> <leader>? :nohlsearch<CR>
 set incsearch " incremental search, search as you type
 set ignorecase " Ignore case when searching
 set smartcase " Ignore case when searching lowercase
@@ -205,7 +204,7 @@ set smartcase " Ignore case when searching lowercase
 " Colors **********************************************************************
 "set t_Co=256 " 256 colors
 syntax on " syntax highlighting
-colorscheme camouflage
+colorscheme torte
 
 if !has('gui_running')
   let g:airline_theme="solarized"
