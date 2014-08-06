@@ -81,3 +81,5 @@ plugins:
     git: git://github.com/moll/vim-node.git
   vimux:
     git: git://github.com/benmills/vimux.git
+  editorconfig:
+    git: git://github.com/editorconfig/editorconfig-vim.git
