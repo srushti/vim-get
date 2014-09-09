@@ -257,7 +257,7 @@ endif
 autocmd FileType html set filetype=xhtml " we couldn't care less about html
 
 " Inser New Line **************************************************************
-map <S-Enter> O<ESC> " awesome, inserts new line without going into insert mode
+map <S-Enter> O<ESC>
 map <Enter> o<ESC>
 set fo-=r " do not insert a comment leader after an enter, (no work, fix!!)
 
