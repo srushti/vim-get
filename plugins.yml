@@ -83,3 +83,5 @@ plugins:
     git: git://github.com/benmills/vimux.git
   editorconfig:
     git: git://github.com/editorconfig/editorconfig-vim.git
+  go:
+    git: git://github.com/fatih/vim-go.git
