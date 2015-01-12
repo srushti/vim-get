@@ -192,7 +192,7 @@ noremap <leader>h :split<CR>
 " Cursor highlights ***********************************************************
 au WinLeave * set nocursorline
 au WinEnter * set cursorline
-set cursorline
+set cursorline nocursorcolumn
 
 " Searching *******************************************************************
 set hlsearch " highlight search
