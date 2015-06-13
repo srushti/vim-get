@@ -55,6 +55,8 @@ plugins:
     git: git://github.com/majutsushi/tagbar.git
   coffee-script:
     git: git://github.com/kchmck/vim-coffee-script.git
+  coffeetags:
+    git: https://github.com/lukaszkorecki/CoffeeTags.git
   repeat:
     git: git://github.com/tpope/vim-repeat.git
   easy-motion:
@@ -85,3 +87,5 @@ plugins:
     git: git://github.com/editorconfig/editorconfig-vim.git
   go:
     git: git://github.com/fatih/vim-go.git
+  json:
+    git: git://github.com/elzr/vim-json.git
