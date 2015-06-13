@@ -85,6 +85,7 @@ nnoremap <unique> <C-S-Tab> <C-w>W
 nnoremap <unique> <S-Tab> <C-o>
 
 inoremap <c-cr> <esc>A<cr>
+nnoremap <unique> Y y$
 
 " Help
 autocmd FileType help :nnoremap <buffer> <silent> q :q<cr>
@@ -231,6 +232,7 @@ set secure
 imap jj <Esc>
 imap uu _
 imap hh =>
+imap -- ->
 imap aa @
 
 " Directories *****************************************************************
@@ -435,10 +437,14 @@ let g:AutoComplPop_BehaviorKeywordLength = 2
 " Unimpaired configuration ****************************************************
 " Bubble single lines
 nmap <C-Up> [e==
+nmap <C-k> [e==
 nmap <C-Down> ]e==
+nmap <C-j> ]e==
 " Bubble multiple lines
 vmap <C-Up> [egv=gv
+vmap <C-k> [egv=gv
 vmap <C-Down> ]egv=gv
+vmap <C-j> ]egv=gv
 
 " -----------------------------------------------------------------------------
 " | OS Specific |
