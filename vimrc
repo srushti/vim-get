@@ -382,7 +382,7 @@ let ctrlp_filter_greps = "".
       \ "swp|swo|log|so|o|pyc|jpe?g|png|gif|mo|po|class|jar|DS_Store" .
       \ ")$' | " .
       \ "egrep -v '^(\\./)?(" .
-      \ "libs/|deploy/vendor/|.git/|.hg/|.svn/|tmp/|.tmp/|.idea/|node_modules/|.sass-cache/" .
+      \ "libs/|deploy/vendor/|.git/|.hg/|.svn/|tmp/|.tmp/|.idea/|node_modules/|.sass-cache/|bower_components/" .
       \ ")'"
 
 let my_ctrlp_user_command = "" .
