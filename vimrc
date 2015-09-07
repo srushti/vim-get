@@ -383,7 +383,7 @@ let ctrlp_filter_greps = "".
       \ "swp|swo|log|so|o|pyc|jpe?g|png|gif|mo|po|class|jar|DS_Store" .
       \ ")$' | " .
       \ "egrep -v '^(\\./)?(" .
-      \ "libs/|deploy/vendor/|.git/|.hg/|.svn/|tmp/|.tmp/|.idea/|node_modules/|.sass-cache/|bower_components/" .
+      \ "libs/|deploy/vendor/|.git/|.hg/|.svn/|tmp/|.tmp/|.idea/|node_modules/|.sass-cache/|bower_components/|_vendor/" .
       \ ")'"
 
 let my_ctrlp_user_command = "" .
@@ -434,6 +434,8 @@ let g:gitgutter_eager = 0
 "set complete=.
 let g:AutoComplPop_IgnoreCaseOption = 0
 let g:AutoComplPop_BehaviorKeywordLength = 2
+
+let g:EasyMotion_smartcase = 1
 
 " Unimpaired configuration ****************************************************
 " Bubble single lines
