@@ -41,6 +41,7 @@ if has('autocmd')
     au!
     autocmd FileType html let g:html_indent_strict=1
     autocmd BufEnter {Gemfile,Rakefile,Guardfile,Capfile,Vagrantfile,Thorfile,config.ru,*.rabl} setfiletype ruby
+    autocmd BufEnter *.template setfiletype json
     autocmd BufEnter *.j setfiletype objc
     autocmd BufEnter *.md setfiletype markdown
     autocmd BufWritePre ?* :call <SID>StripTrailingWhitespaces()
