@@ -192,9 +192,10 @@ noremap <leader>v :vsp<CR>
 noremap <leader>h :split<CR>
 
 " Cursor highlights ***********************************************************
-au WinLeave * set nocursorline
-au WinEnter * set cursorline
-set cursorline nocursorcolumn
+au WinLeave * set nocursorline nocursorcolumn
+au WinEnter * set cursorline cursorcolumn
+set cursorline cursorcolumn
+set colorcolumn=120
 
 " Searching *******************************************************************
 set hlsearch " highlight search
@@ -389,7 +390,7 @@ let ctrlp_filter_greps = "".
       \ "swp|swo|log|so|o|pyc|jpe?g|png|gif|mo|po|class|jar|DS_Store" .
       \ ")$' | " .
       \ "egrep -v '^(\\./)?(" .
-      \ "libs/|deploy/vendor/|.git/|.hg/|.svn/|tmp/|.tmp/|.idea/|node_modules/|.sass-cache/|bower_components/|_vendor/" .
+      \ "libs/|deploy/vendor/|.git/|.hg/|.svn/|tmp/|.tmp/|.idea/|node_modules/|.sass-cache/|bower_components/|_vendor/vendor/" .
       \ ")'"
 
 let my_ctrlp_user_command = "" .
