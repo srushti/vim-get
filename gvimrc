@@ -42,4 +42,3 @@ set lines=45
 
 " Tab headings
 set gtl=%t gtt=%F
-

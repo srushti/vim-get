@@ -363,12 +363,18 @@ nnoremap <silent> <F6> :YRShow<cr>
 " Ctrl-P **********************************************************************
 let g:ctrlp_dont_split = 'NERD_tree_2'
 let g:ctrlp_jump_to_buffer = 0
-let g:ctrlp_map = '<leader>f'
 let g:ctrlp_working_path_mode = 0
 let g:ctrlp_match_window_reversed = 1
 let g:ctrlp_split_window = 0
 let g:ctrlp_max_height = 20
 let g:ctrlp_extensions = ['tag']
+
+if filereadable("/usr/local/bin/fzf") && !has('gui_running')
+  set rtp+=/usr/local/opt/fzf
+  nnoremap <leader>f :FZF<CR>
+else
+  let g:ctrlp_map = '<leader>f'
+end
 
 let g:ctrlp_prompt_mappings = {
       \ 'PrtSelectMove("j")':   ['<c-j>', '<down>', '<s-tab>'],
@@ -431,7 +437,6 @@ let g:gitgutter_eager = 0
 
 let g:syntastic_coffee_checkers = ['coffeelint']
 let g:syntastic_coffee_coffeelint_args = "->reporter csv ->file ~/.coffeelint.json"
-
 
 " autocomplpop ****************************************************************
 " complete option
