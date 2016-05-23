@@ -13,14 +13,10 @@ plugins:
     git: git://github.com/godlygeek/tabular.git
   vim-fugitive:
     git: git://github.com/tpope/vim-fugitive.git
-  snipmate:
-    git: git://github.com/garbas/vim-snipmate.git
+  ultisnips:
+    git: git://github.com/sirver/UltiSnips.git
   snippets:
     git: git://github.com/srushti/vim-snippets.git
-  vim-addon-mw-utils: #needed for snipmate
-    git: git://github.com/MarcWeber/vim-addon-mw-utils.git
-  tlib: #needed for snipmate
-    git: git://github.com/tomtom/tlib_vim.git
   nerdcommenter:
     git: git://github.com/scrooloose/nerdcommenter.git
   vim-bufonly:
