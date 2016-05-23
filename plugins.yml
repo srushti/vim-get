@@ -85,3 +85,9 @@ plugins:
     git: git://github.com/fatih/vim-go.git
   json:
     git: git://github.com/elzr/vim-json.git
+  syntastic:
+    git: git://github.com/scrooloose/syntastic.git
+  elixir:
+    git: git://github.com/elixir-lang/vim-elixir.git
+  julia:
+    git: git://github.com/JuliaLang/julia-vim.git

@@ -427,6 +427,12 @@ endif
 let g:gitgutter_realtime = 0
 let g:gitgutter_eager = 0
 
+" Syntastic *******************************************************************
+
+let g:syntastic_coffee_checkers = ['coffeelint']
+let g:syntastic_coffee_coffeelint_args = "->reporter csv ->file ~/.coffeelint.json"
+
+
 " autocomplpop ****************************************************************
 " complete option
 "set complete=.,w,b,u,t,k
