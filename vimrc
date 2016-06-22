@@ -406,9 +406,9 @@ let g:ctrlp_user_command = ['.git/', my_ctrlp_git_command, my_ctrlp_user_command
 nnoremap <leader>t :CtrlPTag<cr>
 nnoremap <leader>b :CtrlPBuffer<cr>
 
-" Gundo ***********************************************************************
-nmap <silent> <unique> <leader>u :GundoToggle<CR>
-autocmd BufReadPost __Gundo_* set bufhidden=delete
+" Mundo ***********************************************************************
+nmap <silent> <unique> <leader>u :MundoToggle<CR>
+"autocmd BufReadPost __Mundo_* set bufhidden=delete
 
 " Tagbar **********************************************************************
 nmap <silent> <unique> <leader>c :TagbarToggle<CR>

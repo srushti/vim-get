@@ -26,7 +26,7 @@ plugins:
   vim-surround:
     git: git://github.com/tpope/vim-surround.git
   ctrlp:
-    git: git://github.com/kien/ctrlp.vim.git
+    git: git://github.com/ctrlpvim/ctrlp.vim.git
   supertab:
     git: git://github.com/ervandew/supertab.git
   rvm.vim:
@@ -41,10 +41,8 @@ plugins:
     git: git://github.com/pangloss/vim-javascript.git
   vim-ruby-refactoring:
     git: git://github.com/ecomba/vim-ruby-refactoring.git
-  gundo:
-    git: git://github.com/nelstrom/gundo.vim.git
-  conque:
-    svn: http://conque.googlecode.com/svn/trunk/
+  mundo:
+    git: git://github.com/simnalamburt/vim-mundo
   delimitMate:
     git: git://github.com/Raimondi/delimitMate.git
   tagbar:
