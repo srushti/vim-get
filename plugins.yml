@@ -65,6 +65,8 @@ plugins:
     git: git://github.com/airblade/vim-gitgutter.git
   airline:
     git: git://github.com/bling/vim-airline.git
+  airline-themes:
+    git: git://github.com/vim-airline/vim-airline-themes.git
   matchit:
     git: git://github.com/vim-scripts/matchit.zip.git
   zeus-spec:

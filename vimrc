@@ -322,6 +322,9 @@ endif
 " | Plugins |
 " -----------------------------------------------------------------------------
 
+" Airline *********************************************************************
+let g:airline_powerline_fonts = 1
+
 " NERDTree ********************************************************************
 nmap <silent> <unique> <leader>n :NERDTreeToggle<CR>
 nmap <silent> <unique> <leader>/ :NERDTreeFind<CR>
