@@ -13,6 +13,10 @@ set lazyredraw
 set autowriteall
 set autoread
 
+if has("nvim")
+  let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+endif
+
 " Show syntax highlighting groups for word under cursor
 nmap <C-S-S> :call <SID>SynStack()<CR>
 function! <SID>SynStack()
@@ -207,7 +211,7 @@ set smartcase " Ignore case when searching lowercase
 " Colors **********************************************************************
 "set t_Co=256 " 256 colors
 syntax on " syntax highlighting
-colorscheme torte
+colorscheme camouflage
 
 if !has('gui_running')
   let g:airline_theme="solarized"
