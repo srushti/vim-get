@@ -52,6 +52,7 @@ if has('autocmd')
     autocmd BufEnter *.yml.sample setfiletype yaml
     autocmd BufLeave,FocusLost ?* nested :wa
     autocmd BufReadPost #* set bufhidden=delete
+    autocmd BufEnter *nginx.conf setfiletype nginx
   augroup END
 endif
 

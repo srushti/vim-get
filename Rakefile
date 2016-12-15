@@ -82,8 +82,9 @@ task :install do
           in_directory(plugin) { system("svn export . --force #{DOTVIM}") }
         else
           puts "installing #{plugin}"
+          directory = plugin_urls[plugin]['directory'] || '.'
           FOLDERS.each do |f|
-            in_directory(plugin) { FileUtils.cp_r Dir["#{f}/*"], "#{DOTVIM}/#{f}" }
+            in_directory("#{plugin}/#{directory}") { FileUtils.cp_r Dir["#{f}/*"], "#{DOTVIM}/#{f}" }
           end
         end
       end

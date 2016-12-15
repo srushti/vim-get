@@ -91,3 +91,6 @@ plugins:
     git: git://github.com/elixir-lang/vim-elixir.git
   julia:
     git: git://github.com/JuliaLang/julia-vim.git
+  nginx:
+    git: git://github.com/nginx/nginx.git
+    directory: contrib/vim
