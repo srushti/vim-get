@@ -66,6 +66,9 @@ function! QuickfixFilenames()
   return join(values(buffer_numbers))
 endfunction
 
+" explicitly implementing suspend to force reloading changed files
+noremap <c-z> :suspend<cr>:silent! checktime<cr>
+
 " Shortcuts********************************************************************
 nmap <silent> <unique> <leader>w :w<CR>
 nmap <silent> <unique> <leader>W :wa<CR>
