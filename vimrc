@@ -487,6 +487,11 @@ nmap <leader>vpc :wa<CR>:VimuxPromptCommand<CR>
 nmap <leader>vrlc :wa<CR>:VimuxRunLastCommand<CR>
 nmap <leader>r :wa<CR>:VimuxRunLastCommand<CR>
 
+" Vim.go **********************************************************************
+let g:syntastic_go_checkers = ['goimports', 'golint', 'govet', 'errcheck']
+let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
+let g:go_fmt_command = 'goimports'
+
 " -----------------------------------------------------------------------------
 " | OS Specific |
 " | (GUI stuff goes in gvimrc) |
