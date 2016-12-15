@@ -482,6 +482,10 @@ let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
 
+" Vimux ***********************************************************************
+nmap <leader>vpc :wa<CR>:VimuxPromptCommand<CR>
+nmap <leader>vrlc :wa<CR>:VimuxRunLastCommand<CR>
+nmap <leader>r :wa<CR>:VimuxRunLastCommand<CR>
 
 " -----------------------------------------------------------------------------
 " | OS Specific |
