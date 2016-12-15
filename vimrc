@@ -14,7 +14,7 @@ set autowriteall
 set autoread
 
 if has("nvim")
-  let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+  set termguicolors
 endif
 
 " Show syntax highlighting groups for word under cursor
@@ -198,7 +198,7 @@ noremap <leader>h :split<CR>
 
 " Cursor highlights ***********************************************************
 au WinLeave * set nocursorline nocursorcolumn
-au WinEnter * set cursorline cursorcolumn
+au WinEnter,BufEnter * set cursorline cursorcolumn
 set cursorline cursorcolumn
 set colorcolumn=120
 
